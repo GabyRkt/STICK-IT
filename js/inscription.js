@@ -165,10 +165,10 @@ document.addEventListener('DOMContentLoaded', function() {
      e.preventDefault(); // Empêche la soumission du formulaire
    }
 
-   //Verifier que la date de naissance soit bien dans le format AAAAMMJJ
+   //Verifier que la date de naissance soit bien dans le format AAAA/MM/JJ
    let dateFormat = /^\d{8}$/;
     if (!date_naissance.value.match(dateFormat)) {
-      dateErr.innerHTML = "Veuillez saisir une date de naissance valide (AAAAMMJJ)";
+      dateErr.innerHTML = "Veuillez saisir une date de naissance valide (AAAA/MM/JJ)";
       dateErr.style.color = "red";
       e.preventDefault(); // Empêche la soumission du formulaire
     }
