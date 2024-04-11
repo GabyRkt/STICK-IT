@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Inscription</title>
+    <script src="js/connexion.js"></script>
+  </head>
+  <body>
+    <h2>Inscription</h2>
+    <form action="php/connexion.php" method="post" id="formulaire">
+
+      <label for="email">Email :</label><br>
+      <input type="text" id="email" name="email" ><br>
+      <span id="emailErr" class="err"></span><br>
+
+      <label for="mdp">Mot de passe :</label><br>
+      <input type="password" id="mdp" name="mdp" ><br>
+      <span id="passwErr" class="err"></span><br>
+      
+      <input type="submit" value="S'inscrire">
+    </form>
+  </body>
+</html>
