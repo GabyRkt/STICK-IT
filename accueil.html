@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Écran d'accueil - Gestionnaire de Post-its</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+</head>
+
+<body>
+
+
+    <header>
+        <h1>Gestionnaire de Post-its</h1>
+        <nav>
+            <a href="#" id="addPostIt">Ajouter un Post-it</a>
+            <a href="#" id="logout">Se déconnecter</a>
+        </nav>
+    </header>
+
+
+    <main class="flex-container">
+
+        <section id="ownedPostIts" class="flex-item">
+
+            <h2>Mes Post-its</h2>
+
+            <!-- Les post-its possédés seront ajoutés ici dynamiquement -->
+            <div class="sticky-note">
+
+                <div class="note-title">
+
+                    <a class="title-link" href="#"style="text-decoration:none">Title</a>
+
+                </div>
+
+                <section id="note-info" class="flex-item" style="box-shadow: none;">
+
+                <div class="note-date">01/01/2024</div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="sharedPostIts" class="flex-item">
+
+            <h2>Post-its Partagés</h2>
+
+            <!-- Les post-its partagés seront ajoutés ici dynamiquement -->
+            <div class="sticky-note">
+
+                <div class="note-title">
+
+                    <a class="title-link" href="#"style="text-decoration:none">Title</a>
+
+                </div>
+
+                <section id="note-info" class="flex-item" style="box-shadow: none;">
+
+                <div class="note-owner">Nicolas Martin</div>
+
+                <div class="note-date">01/01/2024</div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

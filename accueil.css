@@ -1,0 +1,93 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #FAF3E0;
+    color: #ffffff;
+    margin: 0;
+}
+
+header {
+    background-color: #c79caa;
+    padding: 20px;
+    padding-top: 0px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    color: #ffffff;
+    font-weight: 700; 
+    font-size: 2em; 
+    line-height: 2.2;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #FAF3E0;
+    text-decoration: none;
+    background-color: #e9b77d;
+    padding: 12px 24px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-weight: 600; 
+}
+
+nav a:hover, nav a:focus {
+    background-color: #ffbc70;
+    text-decoration: none;
+    transform: translateY(-3px);
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 -10px; 
+}
+
+.flex-item {
+    flex: 1; 
+    min-width: 300px; 
+    margin: 0 10px; 
+}
+
+section {
+    padding: 20px;
+    background-color: #feebc8;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+section h2 {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    margin-top: 0px;    
+    text-align: center;
+}
+
+.sticky-note {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #f7c266ac;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.note-title {
+    color: #ffffff;
+    font-weight: 900;
+}
+
+.note-info {
+    box-shadow: none;
+    color: #ffffff;
+}
+
+p {
+    line-height: 1.6; 
+    margin-bottom: 1em;
+}
