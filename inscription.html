@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Inscription</title>
+    <script src="js/inscription.js"></script>
+  </head>
+  <body>
+    <h2>Inscription</h2>
+    <form action="php/inscription.php" method="post" id="formulaire">
+      <label for="nom">Nom :</label><br>
+      <input type="text" id="nom" name="nom" ><br>
+      <span id="nomErr" class="err"></span><br>
+
+      <label for="prenom">PrÃ©nom :</label><br>
+      <input type="text" id="prenom" name="prenom" ><br>
+      <span id="prenomErr" class="err"></span><br>
+
+      <label for="username">Nom d'utilisateur :</label><br>
+      <input type="text" id="username" name="username" ><br>
+      <span id="userErr" class="err"></span><br>
+
+      <label for="date_naissance">Date de naissance : (AAAAMMJJ)</label><br>
+      <input type="text" id="date_naissance" name="date_naissance" ><br>
+      <span id="dateErr" class="err"></span><br>
+
+      <label for="email">Email :</label><br>
+      <input type="text" id="email" name="email" ><br>
+      <span id="emailErr" class="err"></span><br>
+
+      <label for="email_verif">Confirmer Email :</label><br>
+      <input type="text" id="email_verif" name="email_verif" ><br>
+      <span id="emailvErr" class="err"></span><br>
+
+      <label for="mdp">Mot de passe :</label><br>
+      <input type="password" id="mdp" name="mdp" ><br>
+      <span id="passwErr" class="err"></span><br>
+
+      <label for="mdp_verif">Confirmer Mot de passe :</label><br>
+      <input type="password" id="mdp_verif" name="mdp_verif" ><br>
+      <span id="passwveErr" class="err"></span><br><br>
+
+      <input type="submit" value="S'inscrire">
+    </form>
+  </body>
+</html>
