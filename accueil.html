@@ -26,22 +26,24 @@
 
             <h2>Mes Post-its</h2>
 
-            <!-- Les post-its possédés seront ajoutés ici dynamiquement -->
+        <!-- Boucle pour afficher les Post-its crée par vous -->
+            <?php foreach ($ownedPostIts as $post): ?>
+
             <div class="sticky-note">
 
-                <div class="note-title">
-
-                    <a class="title-link" href="#"style="text-decoration:none">Title</a>
-
+                <div class="note-title">              
+                    <a class="title-link" href="#" style="text-decoration:none">
+                        <?php echo htmlspecialchars($post['titre_post']); ?>
+                    </a>
                 </div>
 
-                <section id="note-info" class="flex-item" style="box-shadow: none;">
-
-                <div class="note-date">01/01/2024</div>
-
+                <div class="note-date">
+                    <?php echo htmlspecialchars($post['date_creation_post']); ?>           
                 </div>
 
             </div>
+
+        <?php endforeach; ?>
 
         </section>
 
@@ -49,20 +51,28 @@
 
             <h2>Post-its Partagés</h2>
 
-            <!-- Les post-its partagés seront ajoutés ici dynamiquement -->
-            <div class="sticky-note">
+        <!-- Boucle pour afficher les Post-its partagés avec vous -->
+        <?php foreach ($sharedPostIts as $post): ?>
 
-                <div class="note-title">
+        <div class="sticky-note">
 
-                    <a class="title-link" href="#"style="text-decoration:none">Title</a>
+            <div class="note-title">
+                <a class="title-link" href="#" style="text-decoration:none">
+                    <?php echo htmlspecialchars($post['titre_post']); ?>
+                </a>
+            </div>
 
-                </div>
+            <div class="note-owner">
+                <?php echo htmlspecialchars($post['nom_utilisateur']); // Supposant que vous avez joint la table utilisateur ?>
+            </div>
 
-                <section id="note-info" class="flex-item" style="box-shadow: none;">
+            <div class="note-date">
+                <?php echo htmlspecialchars($post['date_creation_post']); ?>
+            </div>
 
-                <div class="note-owner">Nicolas Martin</div>
+        </div>
 
-                <div class="note-date">01/01/2024</div>
+        <?php endforeach; ?>
 
                 </div>
 
