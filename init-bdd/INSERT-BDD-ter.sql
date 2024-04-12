@@ -1,5 +1,5 @@
 -- Insertion dans la table `utilisateur`
-INSERT INTO utilisateur (username_utilisateur, nom_utlisateur, prenom_utlisateur, email_utlisateur, mdp_utilisateur, date_naissance_utilisateur)
+INSERT INTO utilisateur (username_utilisateur, nom_utilisateur, prenom_utilisateur, email_utilisateur, mdp_utilisateur, date_naissance_utilisateur)
 VALUES ('jvinson', 'Vinson', 'Jade', 'jvinson@gmail.com', '12345678', '2000-01-01'),
        ('jdoe', 'Doe', 'John', 'jdoe@outlook.com', '12345678', '1995-05-10'),
        ('gsmith', 'Smith', 'Georges', 'gsmith@parissaclay.com', '12345678', '1988-12-25');
