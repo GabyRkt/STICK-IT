@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css_post_add.css" type="text/css" />
+		<title>Ajouter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
+    <style>
+    .emailBubble {
+        display: inline-block;
+        background-color: #cdeac0;
+        color: #006400;
+        padding: 5px 10px;
+        border-radius: 20px;
+        margin-right: 5px;
+    }
+    .emailBubble .close {
+        cursor: pointer;
+        margin-left: 5px;
+    }
+</style>
+	</head>
+
+<body>
+
+<section>
+
+<div id="content" class="content">
+
+  <form  id="emailForm" action="ajouter_2.php" method="POST">                
+        <label for="titre">Titre :
+        </label>   
+        <input type="text"  name="titre"  size="25" required>
+        <br>                
+        <label for="contenu">Contenu :
+        </label>   
+        <input type="text"  name="contenu"  size="25" required>
+        <br>              
+        <label for="couleur">Couleur :
+        </label>   
+        <input type="color" id="couleur" name="couleur"  size="35">
+        <br>                
+        <label for="police">Choisir une police :</label>
+          <select id="police" name="police">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Tahoma">Tahoma</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Times New Roman">Times New Roman</option>
+          </select>
+        <br>
+        <label for="taille">Taille :
+        </label>   
+        <select id="taille" name="taille">
+            <option value="11">11</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+        <br>
+
+        <label for="email">Partager avec :</label><br>
+        <div id="emailBubbles"></div>
+        <input type="hidden" name="emails" id="emails">
+        <input type="text" id="email" name="email" minlength="3">
+        
+        <select id="emailList" multiple style="display: none;">
+            <!-- Dropdown options will be populated dynamically -->
+        </select>
+        <div id="notFound" style="display: none;">Utilisateur introuvable</div>
+
+        <br>                   
+          <input type="submit" value="Ajouter" /> 
+          </form>
+        </div>
+      </section>
+
+      <script>
+        // Get references to the color input field and the div
+        var colorInput = document.getElementById('couleur');
+        var contentDiv = document.getElementById('content');
+
+        // Add event listener for input event on color input field
+        colorInput.addEventListener('input', function() {
+          // Get the selected color from the color input field
+          var selectedColor = colorInput.value;
+
+          // Set the background color of the div to the selected color
+          contentDiv.style.backgroundColor = selectedColor;
+        });
+    </script>
+
+    <script>
+  // Get reference to the select element
+  var selectElement = document.getElementById('police');
+
+  // Add event listener for change event on select element
+  selectElement.addEventListener('change', function() {
+    // Get the selected font family from the select element
+    var selectedFont = selectElement.value;
+
+    // Set the font family of the select element
+    selectElement.style.fontFamily = selectedFont;
+
+    // Set the font family of each option in the select element
+    var options = selectElement.options;
+    for (var i = 0; i < options.length; i++) {
+      options[i].style.fontFamily = selectedFont;
+    }
+  });
+</script>
+
+<script>
+  //police contenu
+  // Get reference to the select element for font
+  var selectFontElement = document.getElementById('police');
+  // Get reference to the input element for content
+  var contentInput = document.getElementsByName('contenu')[0];
+
+  // Add event listener for change event on select element for font
+  selectFontElement.addEventListener('change', function() {
+    // Get the selected font family from the select element
+    var selectedFont = selectFontElement.value;
+
+    // Set the font family of the content input element
+    contentInput.style.fontFamily = selectedFont;
+  });
+</script>
+
+
+<script>
+        // Get reference to the select element for font size
+        var selectSizeElement = document.getElementById('taille');
+        // Get reference to the input element for content
+        var contentInput = document.getElementsByName('contenu')[0];
+
+        // Add event listener for change event on select element for font size
+        selectSizeElement.addEventListener('change', function() {
+            // Get the selected font size from the select element
+            var selectedSize = selectSizeElement.value;
+
+            // Set the font size of the content input element
+            contentInput.style.fontSize = selectedSize + 'px';
+        });
+    </script>
+
+
+<script>
+$(document).ready(function(){
+    $('#email').on('input', function() {
+        var query = $(this).val();
+        if (query.length >= 3) {
+            // Fetch emails via AJAX and populate the dropdown
+            $.ajax({
+                url: 'rechercher_utilisateurs.php',
+                type: 'GET',
+                data: {query: query},
+                dataType: 'json',
+                success: function(data) {
+                    $('#emailList').empty(); // Clear the dropdown
+                    if (data.length > 0) {
+                        $('#notFound').hide();
+                        $('#emailList').show();
+                        $.each(data, function(index, email) {
+                            $('#emailList').append('<option value="' + email + '">' + email + '</option>');
+                        });
+                    } else {
+                        $('#emailList').empty().append('<option disabled selected>Utilisateur introuvable</option>').show();
+                        $('#notFound').hide();
+                    }
+                }
+            });
+        } else {
+            $('#emailList').hide(); // Hide the dropdown
+            $('#notFound').hide(); // Hide the "Utilisateur introuvable" message
+        }
+    });
+
+    $('#email').keydown(function(event) {
+        if (event.keyCode === 13) { // Check if Enter key is pressed
+            event.preventDefault(); // Prevent form submission
+        }
+    });
+
+    $('#emailList').change(function() {
+        var selectedEmail = $(this).val();
+        addEmailBubble(selectedEmail); // Add selected email as a bubble
+        $(this).val(null).trigger('change'); // Reset the dropdown
+    });
+
+    // Function to add email as a bubble
+    function addEmailBubble(email) {
+        if (email && email.length > 0) {
+            var bubble = $('<div class="emailBubble">' + email + '<span class="close" onclick="removeEmailBubble(this)">×</span></div>');
+            $('#emailBubbles').append(bubble);
+        }
+    }
+
+    // Function to remove email bubble
+    window.removeEmailBubble = function(element) {
+        $(element).parent().remove();
+    };
+});
+
+
+
+// Récupérer les e-mails des bulles et les mettre dans un champ de formulaire
+function prepareEmails() {
+    // Sélectionner toutes les bulles d'e-mail
+    var emailBubbles = document.querySelectorAll('.emailBubble');
+
+    // Sélectionner le champ de formulaire pour les e-mails
+    var emailsInput = document.getElementById('emails');
+
+    // Initialiser une chaîne vide pour stocker les e-mails
+    var emails = '';
+
+    // Parcourir toutes les bulles d'e-mail
+    emailBubbles.forEach(function(bubble) {
+        // Récupérer le contenu de chaque bulle (l'e-mail)
+        var email = bubble.textContent.trim();
+
+        // Ajouter l'e-mail à la chaîne d'e-mails avec une virgule comme séparateur
+        emails += email + ', ';
+    });
+
+    // Supprimer la dernière virgule
+    emails = emails.slice(0, -2);
+
+    // Mettre les e-mails dans le champ de formulaire
+    emailsInput.value = emails;
+}
+
+// Appeler la fonction prepareEmails() avant de soumettre le formulaire
+document.getElementById('emailForm').addEventListener('submit', function(event) {
+    // Empêcher l'envoi du formulaire par défaut
+    event.preventDefault();
+    
+    // Appeler la fonction pour préparer les e-mails
+    prepareEmails();
+
+    // Soumettre le formulaire
+    this.submit();
+});
+
+</script>
+    
+</body>
+</html>
