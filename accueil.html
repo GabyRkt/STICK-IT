@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Écran d'accueil - Gestionnaire de Post-its</title>
     <link rel="stylesheet" href="CSS/accueil.css">
-    <script src="scripts.js"></script>
+    <script src="js/accueil.js"></script>
 </head>
 
 <body>
-
-
+    
     <header>
         <h1>Gestionnaire de Post-its</h1>
         <nav>
@@ -23,61 +22,13 @@
     <main class="flex-container">
 
         <section id="ownedPostIts" class="flex-item">
-
             <h2>Mes Post-its</h2>
-
-        <!-- Boucle pour afficher les Post-its crée par vous -->
-            <?php foreach ($ownedPostIts as $post): ?>
-
-            <div class="sticky-note">
-
-                <div class="note-title">              
-                    <a class="title-link" href="#" style="text-decoration:none">
-                        <?php echo htmlspecialchars($post['titre_post']); ?>
-                    </a>
-                </div>
-
-                <div class="note-date">
-                    <?php echo htmlspecialchars($post['date_creation_post']); ?>           
-                </div>
-
-            </div>
-
-        <?php endforeach; ?>
-
+            <!-- Emplacement pour les post-its personnels -->
         </section>
 
         <section id="sharedPostIts" class="flex-item">
-
             <h2>Post-its Partagés</h2>
-
-        <!-- Boucle pour afficher les Post-its partagés avec vous -->
-        <?php foreach ($sharedPostIts as $post): ?>
-
-        <div class="sticky-note">
-
-            <div class="note-title">
-                <a class="title-link" href="#" style="text-decoration:none">
-                    <?php echo htmlspecialchars($post['titre_post']); ?>
-                </a>
-            </div>
-
-            <div class="note-owner">
-                <?php echo htmlspecialchars($post['nom_utilisateur']); // Supposant que vous avez joint la table utilisateur ?>
-            </div>
-
-            <div class="note-date">
-                <?php echo htmlspecialchars($post['date_creation_post']); ?>
-            </div>
-
-        </div>
-
-        <?php endforeach; ?>
-
-                </div>
-
-            </div>
-
+            <!-- Emplacement pour les post-its partagés -->
         </section>
 
     </main>
