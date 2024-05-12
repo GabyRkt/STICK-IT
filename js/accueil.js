@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="sticky-note" style="background-color: ${post.code_couleur_post};">
                     <div class="note-title"><a class="title-link" href="../afficher_post.php?id=${post.id_post}" style="text-decoration:none">${post.titre_post}</a></div>
                     <div class="note-date">${post.date_creation_post}</div>
+                    <div class="note-user"><p>crée par ${post.username_utilisateur}</p></div>
                 </div>
             `;
         });
