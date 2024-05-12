@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
+    <title>Accueil - Stick IT</title>
     <link rel="stylesheet" type="text/css" href="../CSS/accueil_new.css">
     <script src="../js/accueil.js"></script>
 </head>
