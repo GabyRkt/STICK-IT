@@ -1,6 +1,6 @@
 <?php
 
-include 'database\db_co.php';
+include '../database\db_co.php';
 
 //verifier si l'utilisateur à déjà un compte
 $sql_verif = "SELECT COUNT(*) FROM Utilisateur WHERE username_utilisateur = :username OR email_utilisateur = :email";
