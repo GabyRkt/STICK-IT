@@ -2,18 +2,15 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="style/AfficherPost.css" type="text/css" />
-    <title>Afficher post</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails post</title>
+    <link rel="stylesheet" href="CSS/afficher_post.css" type="text/css">
+    <script src="scripts.js"></script>
 </head>
 
 <body>
-
     <?php include 'database\db_co.php'; ?>
-    <br>
-    <h2>Détails du post</h2>
-    <br>
-
     <?php
     // Vérifie si l'identifiant du post est passé en paramètre dans l'URL
     if (isset($_GET['id'])) {
@@ -35,10 +32,18 @@
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             // Affiche les détails du post
-            echo "<div class='post-details'>";
-            echo "<h3>".$row['titre_post']."</h3>";
-            echo "<p>".$row['contenu_post']."</p>";
-            echo "</div>";
+            echo "
+            <div class='header'>".$row['titre_post']."</div>
+                <div class='container' style='text-align: center;>
+                <div class='post-details' style='text-align: start;'>                
+                    <div class='post-text' style='color:".$row['code_couleur_post']."; font-size:".$row['taille_post']."; font-family:".$row['police_post'].";'><p>".$row['contenu_post']."</p></div>
+                    <div class='post-details'></div>
+                    <a class='back-link' style='text-align: left;' href='liste_post.php'>Retour à la liste des posts</a> 
+                    
+                </div>
+            </div>
+          "
+;
         } else {
             echo "<p>Aucun post trouvé avec cet identifiant.</p>";
         }
@@ -46,10 +51,5 @@
         echo "<p>Identifiant du post non spécifié.</p>";
     }
     ?>
-
-    <br>
-    <a href="liste_post.php">Retour à la liste des posts</a>
-
 </body>
-
 </html>
