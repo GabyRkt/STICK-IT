@@ -1,4 +1,6 @@
 // fichier de vérifications des champs de la page d'inscription avant validation
+
+
 document.addEventListener('DOMContentLoaded', function() {
 
   //Declaration des variables
@@ -10,167 +12,150 @@ document.addEventListener('DOMContentLoaded', function() {
   let prenom = document.getElementById("prenom");
   let prenomErr = document.getElementById("prenomErr");
 
-  let username = document.getElementById("username");
+  let user = document.getElementById("user");
   let userErr = document.getElementById("userErr");
 
-  let date_naissance = document.getElementById("date_naissance");
+  let date = document.getElementById("date");
   let dateErr = document.getElementById("dateErr");
 
   let email = document.getElementById("email");
   let emailErr = document.getElementById("emailErr");
 
   let email_verif = document.getElementById("email_verif");
-  let emailvErr = document.getElementById("emailvErr");
-
+  let email_verifErr = document.getElementById("email_verifErr");
 
   let mdp = document.getElementById("mdp");
-  let passwErr = document.getElementById("passwErr");
+  let mdpErr = document.getElementById("mdpErr");
 
   let mdp_verif = document.getElementById("mdp_verif");
-  let passwveErr = document.getElementById("passwveErr");
+  let mdp_verifErr = document.getElementById("mdp_verifErr");
 
   //Effacer le message erreur "Le champs [...] est requis" une fois qu'on écrit
-  nom.addEventListener('input', function() {
-  if (nom.value.trim() !== "") {
-    nomErr.innerHTML = "";
+  function champVide(element, elementErr) {
+    element.addEventListener('input', function() {
+      if (element.value.trim() !== "") {
+          elementErr.innerHTML = "";
+          element.style.backgroundColor = '#ffffff';
+          element.style.border = '1px solid black'; 
+      }
+    })
   }
-});
 
-  prenom.addEventListener('input', function() {
-  if (prenom.value.trim() !== "") {
-    prenomErr.innerHTML = "";
-  }
-});
+  champVide(nom, nomErr);
+  champVide(prenom, prenomErr);
+  champVide(user, userErr);
+  champVide(date, dateErr);
+  champVide(email, emailErr);
+  champVide(email_verif, email_verifErr);
+  champVide(mdp, mdpErr);
+  champVide(mdp_verif, mdp_verifErr);
 
-  username.addEventListener('input', function() {
-  if (username.value.trim() !== "") {
-  userErr.innerHTML = "";
-  }
-  });
+  // Fonction pour afficher une erreur 
+  function errorStyle(element, errorMessage) {
 
-  date_naissance.addEventListener('input', function() {
-  if (date_naissance.value.trim() !== "") {
-  dateErr.innerHTML = "";
-  }
-  });
+    // Trouver l'élément d'erreur correspondant
+    let erreur = document.getElementById(element.id + 'Err'); 
 
-  email.addEventListener('input', function() {
-  if (email.value.trim() !== "") {
-  emailErr.innerHTML = "";
-  }
-  });
+    if (erreur) {
+      erreur.innerHTML = errorMessage;
+      erreur.style.color = "red";
 
-  email_verif.addEventListener('input', function() {
-  if (email_verif.value.trim() !== "") {
-  emailvErr.innerHTML = "";
-  }
-  });
+      element.style.backgroundColor = '#FFE8E8'; // Fond rouge clair
+      element.style.border = '1px solid red'; // Bordure rouge
+    } 
 
-  mdp.addEventListener('input', function() {
-  if (mdp.value.trim() !== "") {
-  passwErr.innerHTML = "";
   }
-  });
-
-  mdp_verif.addEventListener('input', function() {
-  if (mdp_verif.value.trim() !== "") {
-  passwveErr.innerHTML = "";
-  }
-  });
 
 //Validation du formulaire
   formulaire.addEventListener('submit', function(e) {
     //Vérification que tous les champs sont remplis
-    //Nom
+
+    // *** Nom ***
     if (nom.value.trim() === "") {
-      nomErr.innerHTML = "Le champ nom est requis";
-      nomErr.style.color = "red";
+      errorStyle(nom, "Le champ nom est requis");
       e.preventDefault();
     }
 
-    //Prénom
+    // *** Prénom ***
     if (prenom.value.trim() === "") {
-      prenomErr.innerHTML = "Le champ prénom est requis";
-      prenomErr.style.color = "red";
+      errorStyle(prenom,"Le champ prénom est requis");
+      e.preventDefault();
+    } 
+
+    // *** Username ***
+    if (user.value.trim() === "") {
+      errorStyle(user, "Le champ nom d'utilisateur est requis");
       e.preventDefault();
     }
 
-    //Username
-    if (username.value.trim() === "") {
-      userErr.innerHTML = "Le champ nom d'utilisateur est requis";
-      userErr.style.color = "red";
+    // *** Date de naissance ***
+    let dateFormat = /^\d{4}\/\d{2}\/\d{2}$/;
+
+    if (date.value.trim() === "") {
+      errorStyle(date, "Le champ date de naissance est requis");
       e.preventDefault();
+    } else { 
+
+     //Verifier que la date de naissance soit bien dans le format AAAA/MM/JJ
+      if (!date.value.match(dateFormat)) {
+          errorStyle(date,"Veuillez saisir une date de naissance valide (AAAA/MM/JJ)");
+          e.preventDefault(); 
+      }
     }
 
-    //Date de naissance
-    if (date_naissance.value.trim() === "") {
-      dateErr.innerHTML = "Le champ date de naissance est requis";
-      dateErr.style.color = "red";
-      e.preventDefault();
-    }
 
-    //Email
+    // *** Email ***
+    let emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (email.value.trim() === "") {
-      emailErr.innerHTML = "Le champ email est requis";
-      emailErr.style.color = "red";
+      errorStyle(email, "Le champ email est requis");
       e.preventDefault();
+    } else {
+
+      //Verifier que l'email soit bien sur le format login@domaine.extension
+      if (!email.value.match(emailFormat)) {
+        errorStyle(email, "Veuillez saisir un email valide");
+        e.preventDefault(); // Empêche la soumission du formulaire
+      }
     }
 
-    //Confirmation Email
+    // *** Confirmation Email ***
     if (email_verif.value.trim() === "") {
-      emailvErr.innerHTML = "Le champ confirmation email est requis";
-      emailvErr.style.color = "red";
+      errorStyle(email_verif, "Le champ confirmation email est requis");
       e.preventDefault();
     }
 
-    //Mot de passe
+    //Verifier que le "confirmer email" soit le meme que l'email
+    if (email_verif.value !== email.value) {
+      errorStyle(email_verif, "Les adresses email ne correspondent pas");
+      e.preventDefault(); // Empêche la soumission du formulaire
+    }
+
+    // *** Mot de passe ***
     if (mdp.value.trim() === "") {
-      passwErr.innerHTML = "Le champ mot de passe est requis";
-      passwErr.style.color = "red";
+      errorStyle(mdp, "Le champ mot de passe est requis");
       e.preventDefault();
+
+    } else {
+
+      //Verifier que la mot de passe est au moins 6 caracteres
+      if (mdp.value.trim().length < 6) {
+          errorStyle(mdp, "Le mot de passe doit avoir au moins 6 caractères");
+          e.preventDefault();
+      }
     }
 
-    //Confirmation Mot de passe
+
+    // *** Confirmation Mot de passe ***
     if (mdp_verif.value.trim() === "") {
-      passwveErr.innerHTML = "Le champ confirmation mot de passe est requis";
-      passwveErr.style.color = "red";
-      e.preventDefault();
-    }
-
-    //Verifier que la mot de passe est au moins 6 caracteres
-    if (mdp.value.trim().length < 6) {
-      passwErr.innerHTML = "Le mot de passe doit avoir au moins 6 caractères";
-      passwErr.style.color = "red";
+      errorStyle(mdp_verif, "Le champ confirmation mot de passe est requis");
       e.preventDefault();
     }
 
     //Verifier que le "confirmer mot de passe" est le meme que le mot de passe
     if (mdp_verif.value !== mdp.value) {
-      passwveErr.innerHTML = "Les mots de passe ne correspondent pas";
-      passwveErr.style.color = "red";
+      errorStyle(mdp_verif, "Les mots de passe ne correspondent pas");
       e.preventDefault();
-    }
-
-    //Verifier que l'email soit bien sur le format login@domaine.extension
-    let emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email.value.match(emailFormat)) {
-      emailErr.innerHTML = "Veuillez saisir un email valide";
-      emailErr.style.color = "red";
-      e.preventDefault(); // Empêche la soumission du formulaire
-    }
-    //Verifier que le "confirmer email" soit le meme que l'email
-    if (email_verif.value !== email.value) {
-     emailvErr.innerHTML = "Les adresses email ne correspondent pas";
-     emailvErr.style.color = "red";
-     e.preventDefault(); // Empêche la soumission du formulaire
-   }
-
-   //Verifier que la date de naissance soit bien dans le format AAAA/MM/JJ
-   let dateFormat = /^\d{8}$/;
-    if (!date_naissance.value.match(dateFormat)) {
-      dateErr.innerHTML = "Veuillez saisir une date de naissance valide (AAAA/MM/JJ)";
-      dateErr.style.color = "red";
-      e.preventDefault(); // Empêche la soumission du formulaire
     }
 
   });

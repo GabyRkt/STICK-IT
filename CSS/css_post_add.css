@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif; /* Utilisation de la police Arial par défaut */
+    background-color: #f0f0f0; /* Couleur de fond de la page */
+}
+
+section {
+    width: 50%; /* Largeur de la section */
+    margin: 50px auto; /* Centrer la section horizontalement */
+}
+
+#content {
+    background-color: white; /* Couleur de fond du cadre */
+    border-radius: 10px; /* Bord arrondi du cadre */
+    padding: 20px; /* Espace intérieur du cadre */
+    border: 2px solid black; /* Bordure solide grise autour du cadre */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px; /* Espacement entre les labels */
+}
+
+input[type="text"],
+input[type="color"],
+select {
+    margin-bottom: 15px; /* Espacement entre les champs */
+    padding: 5px; /* Espace intérieur du champ */
+    border-radius: 5px; /* Bord arrondi des champs */
+    border: 1px solid #ccc; /* Bordure solide grise autour des champs */
+}
+
+input[type="submit"] {
+    width: 100px; /* Largeur du bouton */
+    align-self: flex-end; /* Aligner le bouton à droite */
+    margin-top: 20px; /* Espacement entre le bouton et les champs */
+    border: none; /* Supprimer la bordure du bouton */
+    background-color: #007bff; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte du bouton */
+    padding: 10px; /* Espace intérieur du bouton */
+    border-radius: 5px; /* Bord arrondi du bouton */
+    cursor: pointer; /* Curseur de la souris en forme de main au survol */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Couleur de fond du bouton au survol */
+}
+
+.emailBubble {
+        display: inline-block;
+        background-color: #cdeac0;
+        color: #006400;
+        padding: 5px 10px;
+        border-radius: 20px;
+        margin-right: 5px;
+    }
+    .emailBubble .close {
+        cursor: pointer;
+        margin-left: 5px;
+    }
