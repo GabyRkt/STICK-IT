@@ -1,12 +1,19 @@
 <?php
 
-include '../database/db_co.php'; // Assurez-vous que le chemin vers votre script de connexion est correct
+include '../database/db_co.php';
+session_start();
+
+if (!isset($_SESSION['userId'])) {
+    echo json_encode(['error' => 'Utilisateur non connecté']);
+    exit;
+}
+
+$userId = $_SESSION['userId'];
 
 try {
-    // Récupération de toutes les entrées de la table Post
-    $query = "SELECT * FROM Post";
+    $query = "SELECT * FROM Post WHERE id_utilisateur = :userId";
     $stmt = $db->prepare($query);
-    $stmt->execute();
+    $stmt->execute([':userId' => $userId]);
 
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
