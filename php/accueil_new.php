@@ -7,7 +7,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
-    <link rel="stylesheet" type="text/css" href="/TER/CSS/accueil_new.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/accueil_new.css">
+    <script src="../js/accueil.js"></script>
 </head>
 <body>
     <header>

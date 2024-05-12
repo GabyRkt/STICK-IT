@@ -154,3 +154,25 @@ section h2 {
     text-align: center;
 }
 
+
+.sticky-note {
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.note-title {
+    color: #ffffff;
+    font-weight: 900;
+}
+
+.note-info {
+    box-shadow: none;
+    color: #ffffff;
+}
+
+p {
+    line-height: 1.6; 
+    margin-bottom: 1em;
+}

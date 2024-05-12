@@ -6,7 +6,7 @@ session_start();
   <head>
     <meta charset="utf-8">
     <title>Connexion</title>
-    <link rel="stylesheet" type="text/css" href="/TER/CSS/connexion.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/connexion.css">
     <script src="js/connexion.js"></script>
   </head>
   <body>
