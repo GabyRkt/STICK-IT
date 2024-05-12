@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('../php/accueil.php')
+    fetch('php/accueil.php')
     .then(response => response.json())
     .then(posts => {
         const postContainer = document.getElementById('ownedPostIts'); // Utilisez 'ownedPostIts' ou un autre conteneur approprié
