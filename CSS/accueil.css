@@ -41,6 +41,7 @@ nav a:hover, nav a:focus {
 
 .flex-container {
     display: flex;
+    align-items: start;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 -10px; 
