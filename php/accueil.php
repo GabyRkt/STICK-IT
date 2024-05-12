@@ -11,13 +11,29 @@ if (!isset($_SESSION['userId'])) {
 $userId = $_SESSION['userId'];
 
 try {
-    $query = "SELECT * FROM Post WHERE id_utilisateur = :userId";
-    $stmt = $db->prepare($query);
-    $stmt->execute([':userId' => $userId]);
+    // Récupérer les post-its possédés par l'utilisateur
+    $queryOwned = "SELECT * FROM Post WHERE id_utilisateur = :userId ORDER BY date_derniere_modif_post DESC";
+    $stmt1 = $db->prepare($queryOwned);
+    $stmt1->execute([':userId' => $userId]);
+    $ownedPosts = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 
-    $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Récupérer les post-its partagés avec l'utilisateur
+    $queryShared = "SELECT Post.* FROM Post 
+                    JOIN Partage ON Post.id_post = Partage.id_post 
+                    WHERE Partage.id_utilisateur = :userId
+                    ORDER BY Post.date_derniere_modif_post DESC";
+                    
+    $stmt2 = $db->prepare($queryShared);
+    $stmt2->execute([':userId' => $userId]);
+    $sharedPosts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
-    echo json_encode($posts);
+    // Encodage et envoi des données en JSON
+    echo json_encode([
+        'ownedPosts' => $ownedPosts,
+        'sharedPosts' => $sharedPosts
+    ]);
+
 } catch (Exception $e) {
     echo json_encode(['error' => $e->getMessage()]);
 }
+?>
