@@ -30,7 +30,7 @@ if($req->rowCount() > 0){
         $_SESSION['id'] = $user['id_utilisateur'];
 
         //Redirection ver la page d'accueil
-        header("Location: test.php");
+        header("Location: accueil_new.php");
         exit();
     } else {
         #echo "mot de passe ou email incorrect.";
@@ -43,6 +43,6 @@ if($req->rowCount() > 0){
     $compteErr = "Vous n'avez pas de compte";
 }
 
-header("Location: ../connexion.php?mdpErr=$mdpErr&compteErr=$compteErr");
+header("Location: ../php/connexion.php?mdpErr=$mdpErr&compteErr=$compteErr");
 exit();
 ?>
