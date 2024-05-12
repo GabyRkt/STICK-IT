@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         data.ownedPosts.forEach(post => {
             ownedContainer.innerHTML += `
                 <div class="sticky-note" style="background-color: ${post.code_couleur_post}; font-family: ${post.police_post}; font-size: ${post.taille_post};">
-                    <div class="note-title"><a class="title-link" href="../afficher_post_2.php" style="text-decoration:none">${post.titre_post}</a></div>
+                    <div class="note-title"><a class="title-link" href="../afficher_post.php" style="text-decoration:none">${post.titre_post}</a></div>
                     <div class="note-date">${post.date_creation_post}</div>
                     <button href="#"> Modifier </button>
                     <button href="#"> Supprimer </button>
