@@ -137,29 +137,42 @@ nav a:hover, nav a:focus {
 }
 
 section {
-    width: calc(50% - 10px);
-    padding: 20px;
+    width: calc(50% - 20px);
+    padding: 10px;
     background-color: #f5dba9;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin: 10px;
+    display: flex; /* Ensure this is a flex container */
+    flex-wrap: wrap; /* Allow wrapping of child elements */
+    justify-content: center; /* Center children horizontally */
+    align-items: center;
 }
 
 section h2 {
     color: #ffffff;
     font-weight: 600;
-    margin-bottom: 0.5em;
-    margin-top: 0px;    
+    margin-top: 10px;    
     text-align: center;
+    width: 100%; /* Prend la pleine largeur pour éviter toute confusion de flottement */
+    margin-bottom: 10px;
 }
 
+@media screen and (max-width: 768px) { /* Update media query breakpoint if necessary */
+    section {
+        width: 100%; /* Each section takes full width */
+        margin-bottom: 20px;
+    }
+}
 
 .sticky-note {
+    width: calc(50% - 50px); /* Adjust width to fit within the container, accounting for padding */
     border-radius: 15px;
     padding: 10px;
-    margin-bottom: 10px;
+    margin: 10px; /* Adjust margins for spacing */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: inline-block;
+    display: inline-block; /* Inline-block for layout */
+    text-align: center;
 }
 
 .note-title {
@@ -171,8 +184,21 @@ section h2 {
     box-shadow: none;
     color: #ffffff;
 }
+.note-button, .note-user{
+    text-align: end;
+}
 
 p {
     line-height: 1.6; 
     margin-bottom: 1em;
+}
+
+/* Supprime la couleur par défaut des liens et utilise une couleur personnalisée */
+a.title-link:link, a.title-link:visited {
+    color: rgb(50, 50, 50); /* Définit tous les liens à noir */
+    text-decoration: none; /* Optionnel: enlève le soulignement */
+}
+
+a.title-link:hover, a.title-link:active {
+    color: rgb(254, 175, 94); /* Couleur pour les états hover et active */
 }
