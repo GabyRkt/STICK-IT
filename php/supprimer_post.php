@@ -36,7 +36,7 @@
 
         <form action="supp_post_2.php" method="post">
             <a class="delete-button" href='supp_post_2.php?id=<?php echo $post_id; ?>' style="text-decoration: none;">Supprimer</a>
-            <button type="button" class="cancel-button" onclick="window.location.href = 'liste_post.php';">Annuler</button>
+            <button type="button" class="cancel-button" onclick="window.location.href = 'accueil.php';">Annuler</button>
         </form>
     </div>
 </body>
