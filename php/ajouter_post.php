@@ -18,7 +18,7 @@
     ?>
     </header>
 
-    <section>
+    <section id="form_ajouter" class="form_ajouter">
 
         <h2>Ajouter un post-it</h2>
 
