@@ -63,6 +63,6 @@ if (isset($_POST['emails'])) {
 }
 }
 
-header('location:accueil.php');
+header('location:../php/accueil.php');
 exit();
 ?>

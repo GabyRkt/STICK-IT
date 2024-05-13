@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD
-include '../database\db_co.php';
-=======
-include '..\database\db_co.php';
->>>>>>> cc75fde20800b4a1aeea9497c71f955eacb01b3f
+include '../database/db_co.php';
 
 // Récupérer les valeurs saisies dans le formulaire
 $nom = $_POST['nom'];

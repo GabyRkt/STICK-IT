@@ -1,14 +1,14 @@
 <nav>
     <div class="container">
         <div class="left">
-            <a href="#" class="logo">NomDuSite</a>
+            <a href="../php/accueil.php" class="logo">Stick IT</a>
         </div>
         <div class="right">
             <?php 
             if(!isset($_SESSION['id'])){
             ?>
             <a href="../php/connexion.php" class="nav-link">Connexion</a>
-            <a href="#" class="nav-link">Inscription</a>
+            <a href="../inscription.html" class="nav-link">Inscription</a>
 
             <?php
             }else{

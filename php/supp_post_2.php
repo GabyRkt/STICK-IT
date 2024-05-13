@@ -26,7 +26,7 @@ if (isset($_GET['id'])) {
         $db->commit();
 
         // Rediriger vers la liste des posts
-        header('location:accueil.php');
+        header('location:../php/accueil.php');
     } catch (Exception $e) {
         // En cas d'erreur, annuler la transaction
         $db->rollBack();
