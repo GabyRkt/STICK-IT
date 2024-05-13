@@ -59,15 +59,15 @@ if (isset($_GET['id'])) {
                 <form  id="emailForm" action="modifier_post_2.php" method="POST">                
                     <input name="id" type="hidden" value="<?php echo $post_data['id_post']; ?>">
                     <label for="titre">Titre :</label>
-                    <input name="titre" id="titre" type="text" size="25" value="<?php echo $post_titre; ?>">
+                    <textarea id="titre" name="titre" rows="3" cols="150" maxlength="150" required>value="<?php echo $post_titre; ?>" </textarea>
                     <br>
                     <label for="contenu">Contenu : </label>
-                    <textarea id="contenu" name="contenu" rows="4" cols="25" required><?php echo htmlspecialchars($post_contenu); ?></textarea>
+                    <textarea id="contenu" name="contenu" rows="4" cols="255" maxlength="255" required><?php echo htmlspecialchars($post_contenu); ?></textarea>
                     <br>    
                     <label for="couleur">Couleur :</label>
                     <input name="couleur" id="couleur" type="color" size="25" value="<?php echo htmlspecialchars($post_couleur); ?>">
                     <br>
-                    <label for="police">Choisir une police :</label>
+                    <label for="police">Police :</label>
                     <select id="police" name="police">
                         <option value="Arial" <?php if($post_police == 'Arial') echo 'selected'; ?>>Arial</option>
                         <option value="Verdana" <?php if($post_police == 'Verdana') echo 'selected'; ?>>Verdana</option>
@@ -76,11 +76,11 @@ if (isset($_GET['id'])) {
                         <option value="Times New Roman" <?php if($post_police == 'Times New Roman') echo 'selected'; ?>>Times New Roman</option>
                     </select>
                     <br>
-                    <label for="taille">Choisir une taille :</label>
+                    <label for="taille">Taille :</label>
                     <select id="taille" name="taille">
-                        <option value="11" <?php if($post_taille == '11') echo 'selected'; ?>>11</option>
-                        <option value="15" <?php if($post_taille == '15') echo 'selected'; ?>>15</option>
-                        <option value="20" <?php if($post_taille == '20') echo 'selected'; ?>>20</option>
+                        <option value="12" <?php if($post_taille == '11') echo 'selected'; ?>>12</option>
+                        <option value="14" <?php if($post_taille == '14') echo 'selected'; ?>>14</option>
+                        <option value="16" <?php if($post_taille == '16') echo 'selected'; ?>>16</option>
                     </select>
                     <br>
                     <label for="email">Partager avec :</label><br>
