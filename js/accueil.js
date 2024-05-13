@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="sticky-note" style="background-color: ${post.code_couleur_post};">
                     <div class="note-title"><a class="title-link" href="../afficher_post.php?id=${post.id_post}" style="text-decoration:none">${post.titre_post}</a></div>
                     <div class="note-date">${post.date_creation_post}</div>
-                    <a class="button" href="../modifier_post.php?id=${post.id_post}" style="text-decoration:none;">Modifier</a>
-                    <a class="button" href="../supprimer_post.php?id=${post.id_post}" style="text-decoration:none;">Supprimer</a>
+                    <a class="button" href="../php/modifier_post.php?id=${post.id_post}" style="text-decoration:none;">Modifier</a>
+                    <a class="button" href="../php/supprimer_post.php?id=${post.id_post}" style="text-decoration:none;">Supprimer</a>
 
                 </div>
             `;
