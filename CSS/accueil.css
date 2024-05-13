@@ -136,7 +136,7 @@ nav a:hover, nav a:focus {
     padding-right: 15px;
 }
 
-section {
+section.flex-item {
     width: calc(50% - 20px);
     padding: 10px;
     background-color: #f5dba9;
@@ -176,21 +176,7 @@ section h2 {
 }
 
 .note-title {
-    color: #ffffff;
     font-weight: 900;
-}
-
-.note-info {
-    box-shadow: none;
-    color: #ffffff;
-}
-.note-button, .note-user{
-    text-align: end;
-}
-
-p {
-    line-height: 1.6; 
-    margin-bottom: 1em;
 }
 
 /* Supprime la couleur par défaut des liens et utilise une couleur personnalisée */
@@ -202,3 +188,16 @@ a.title-link:link, a.title-link:visited {
 a.title-link:hover, a.title-link:active {
     color: rgb(254, 175, 94); /* Couleur pour les états hover et active */
 }
+
+.note-info{
+    display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.note-button, .note-user{
+    margin-left: auto;;
+}
+
+
+

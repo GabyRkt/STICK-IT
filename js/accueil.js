@@ -23,11 +23,17 @@ document.addEventListener('DOMContentLoaded', function() {
         data.ownedPosts.forEach(post => {
             ownedContainer.innerHTML += `
                 <div class="sticky-note" style="background-color: ${post.code_couleur_post};">
-                    <div class="note-title"><a class="title-link" href="../afficher_post.php?id=${post.id_post}" style="text-decoration:none">${post.titre_post}</a></div>
-                    <div class="note-date">${formatPostItDate(post.date_creation_post)}</div>
-                    <div class="note-button"><a class="button" href="../php/modifier_post.php?id=${post.id_post}" style="text-decoration:none;"><img src="../icons/pencil-square.svg"</a>
-                    <a class="button" href="../php/supprimer_post.php?id=${post.id_post}" style="text-decoration:none;"><img src="../icons/trash-fill.svg"</a></div>
-
+                    <div class="note-title">
+                        <a class="title-link" href="../afficher_post.php?id=${post.id_post}" style="text-decoration:none">${post.titre_post}</a>
+                    </div><br />
+                    <BR>
+                    <div class="note-info">
+                        <a class="note-date">${formatPostItDate(post.date_creation_post)}</a>
+                        <div class="note-button">
+                            <a class="button" href="../php/modifier_post.php?id=${post.id_post}" style="text-decoration:none;"><img src="../icons/pencil-square.svg"</a>
+                            <a class="button" href="../php/supprimer_post.php?id=${post.id_post}" style="text-decoration:none;"><img src="../icons/trash-fill.svg"</a>
+                        </div>
+                    </div>
                 </div>
             `;
         });
@@ -36,11 +42,16 @@ document.addEventListener('DOMContentLoaded', function() {
         data.sharedPosts.forEach(post => {
             sharedContainer.innerHTML += `
                 <div class="sticky-note" style="background-color: ${post.code_couleur_post};">
-                    <div class="note-title"><a class="title-link" href="../afficher_post.php?id=${post.id_post}" style="text-decoration:none">${post.titre_post}</a></div>
-                    <div class="note-date">${formatPostItDate(post.date_creation_post)}</div>
-                    <div class="note-user">
-                        <div>
-                            <em>crée par ${post.username_utilisateur}</em>
+                    <div class="note-title">
+                        <a class="title-link" href="../afficher_post.php?id=${post.id_post}" style="text-decoration:none">${post.titre_post}</a>
+                    </div><br />
+                    <BR>
+                    <div class="note-info">
+                        <div class="note-date">${formatPostItDate(post.date_creation_post)}</div>
+                        <div class="note-user">
+                            <div>
+                                <em>crée par ${post.username_utilisateur}</em>
+                            </div>
                         </div>
                     </div>
                 </div>
