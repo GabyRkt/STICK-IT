@@ -53,7 +53,7 @@ if (isset($_GET['id'])) {
         // Afficher le formulaire de modification avec les données du post
         ?>
 
-        <section>
+        <section id="form_ajouter" class="form_ajouter">
             <h2>Modifier un post-it</h2>
             <div id="content" class="content">
                 <form  id="emailForm" action="modifier_post_2.php" method="POST">                
