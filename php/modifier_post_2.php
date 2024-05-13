@@ -11,6 +11,12 @@ $police = $_POST['police'];
 $taille = $_POST['taille'];
 $date_modif = date('Y-m-d H:i:s');
 
+// Vérifier si le titre dépasse 150 caractères
+if (strlen($titre) > 150) {
+    // Limiter le titre à 150 caractères
+    $titre = substr($titre, 0, 150);
+}
+
 // Requête de mise à jour pour le post
 $reqSQL = "UPDATE post SET titre_post= :titre, contenu_post= :contenu, code_couleur_post= :couleur, police_post= :police, taille_post= :taille, date_derniere_modif_post= :date_modif WHERE id_post= :id_post";
 $stmt = $db->prepare($reqSQL);
