@@ -14,10 +14,15 @@ $couleur = $_POST['couleur'];
 $police = $_POST['police'];
 $taille = $_POST['taille'];
 $id_user = $_SESSION['id'];
-
 // Dates de création et de modification
 $date_create = date('Y-m-d H:i:s');
 $date_modif = date('Y-m-d H:i:s');
+
+// Vérifier si le titre dépasse 150 caractères
+if (strlen($titre) > 150) {
+    // Limiter le titre à 150 caractères
+    $titre = substr($titre, 0, 150);
+}
 
 // Insertion du post dans la table post
 $reqSQL = "INSERT INTO `post`(`titre_post`, `contenu_post`, `date_creation_post`, `date_derniere_modif_post`, `code_couleur_post`, `police_post`, `taille_post`, `id_utilisateur`)
