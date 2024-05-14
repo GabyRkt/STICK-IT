@@ -107,3 +107,12 @@ Cette page permet à un utilisateur connecté de supprimer définitivement un de
 
 - supp_post_2.php:
 Cette page est la suite de supprimer_post.php. Lorsque l'utilisateur clique sur le bouton "Supprimer", l'ID du post-it est récupéré en POST et supprimé dans les tables "partage" puis "post" de la base de données en raison des dépendances entre ces tables. 
+
+------------------------------------------
+Afficher un post-it
+------------------------------------------
+
+- details_post.php:
+Cette page permet l’affichage des détails d’un post-it dont son titre, son contenu, sa date de création et de dernière modification et les mails des personnes avec qui le post a été partagé. Si on est propriétaire de cette note, on peut directement modifier et supprimer, le post depuis cette interface.
+
+
