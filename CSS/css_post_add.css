@@ -208,6 +208,11 @@ input[type="submit"]:hover {
     font-size: 12px;
 }
 
+input:invalid,
+textarea:invalid {
+    background-color: #FFCCCC; 
+}
+
 label {
     color: #c79caa; 
 }
