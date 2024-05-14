@@ -33,7 +33,7 @@
 
             <form  id="emailForm" action="ajouter_2.php" method="POST">                
                 <label for="titre">Titre : </label>   
-                <textarea id="titre" name="titre" rows="3" cols="150" maxlength="150" required></textarea>
+                <textarea id="titre" name="titre" rows="3" required></textarea>
                 <span id="titreErr" class="err"></span>
 		<br>                
                 <label for="contenu">Contenu : </label>
@@ -68,7 +68,7 @@
                 </select>
                 <div id="notFound" style="display: none;">Utilisateur introuvable</div>
                 <br>                   
-                <input type="submit" value="Ajouter"> 
+                <input type="submit" value="Ajouter" onclick="return checkTitleLength()"> 
             </form>
         </div>
     </section>
