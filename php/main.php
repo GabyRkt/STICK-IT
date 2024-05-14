@@ -25,9 +25,9 @@
                 <p>By Emily L., Gabriella R., Valentine Q., Kelly R., Jade V.</p>
             </section>
         </section>
-        <section>
-            <img src="../icons/notes-list.png" class="image">
-        </section>
+        <div>
+            <img src="../icons/notes-list.png" class="image" alt="exemple_note">
+        </div>
     </main>
 
 
