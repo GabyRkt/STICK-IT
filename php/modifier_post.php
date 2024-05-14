@@ -1,5 +1,10 @@
 <?php
     session_start();
+    if (!isset($_SESSION['id'])) {
+        header('Location: connexion.php');
+        exit();
+    }
+    $user_id = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,9 +34,10 @@ if (isset($_GET['id'])) {
     include '../database/db_co.php';
 
     // Préparer la requête SQL pour récupérer le titre et le contenu du post en fonction de son ID
-    $sql = "SELECT id_post, titre_post, contenu_post, code_couleur_post, police_post, taille_post FROM post WHERE id_post = :post_id";
+    $sql = "SELECT id_post, titre_post, contenu_post, code_couleur_post, police_post, taille_post FROM post WHERE id_post = :post_id AND id_utilisateur = :user_id";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
 
     // Vérifier si le post existe
