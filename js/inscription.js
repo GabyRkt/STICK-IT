@@ -156,20 +156,19 @@ document.addEventListener('DOMContentLoaded', function() {
       return true;
   }
 
+    // Validation dynamique
+    nom.addEventListener('input', validerNom);
+    prenom.addEventListener('input', validerPrenom);
+    user.addEventListener('input', validerUser);
+    date.addEventListener('input', validerDate);
+    email.addEventListener('input', validerEmail);
+    email_verif.addEventListener('input', validerEmailVerif);
+    mdp.addEventListener('input', validerMdp);
+    mdp_verif.addEventListener('input', validerMdpVerif);
+
 
   // Validation du formulaire 
   formulaire.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      // Validation dynamique
-      nom.addEventListener('input', validerNom);
-      prenom.addEventListener('input', validerPrenom);
-      user.addEventListener('input', validerUser);
-      date.addEventListener('input', validerDate);
-      email.addEventListener('input', validerEmail);
-      email_verif.addEventListener('input', validerEmailVerif);
-      mdp.addEventListener('input', validerMdp);
-      mdp_verif.addEventListener('input', validerMdpVerif);
       
      // Vérification lors de la validation
       if (!validerNom() ) {
