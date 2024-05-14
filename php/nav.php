@@ -15,7 +15,7 @@
             ?>
              <a href="../php/ajouter_post.php" class="nav-link">Ajouter un Post-it</a>
              <a href="../php/deconnexion.php" class="nav-link">Deconnexion</a>
-             <a href="#" class="nav-link"><?php echo $_SESSION['username']?></a>
+             <a href="" class="nav-link"><?php echo $_SESSION['username']?></a>
             <?php
             }
             ?>
