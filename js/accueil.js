@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
             sharedContainer.innerHTML += `
                 <div class="sticky-note" style="background-color: ${post.code_couleur_post};">
                     <div class="note-title">
-                        <a class="title-link" href="../afficher_post.php?id=${post.id_post}" style="text-decoration:none">${post.titre_post}</a>
+                        <a class="title-link" href="../php/details_post.php?id=${post.id_post}" style="text-decoration:none">${post.titre_post}</a>
                     </div><br />
                     <BR>
                     <div class="note-info">
