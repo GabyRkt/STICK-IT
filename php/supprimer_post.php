@@ -12,9 +12,10 @@
     require_once('../php/nav.php');
     ?>
     </header>
-    
-    <h2>Supprimer un post-it</h2>
+     
     <div class="post-it">
+        <h2>Supprimer un post-it</h2>
+        <br>
         <?php
         if (isset($_GET['id'])) {
             $post_id = $_GET['id'];
@@ -25,7 +26,8 @@
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
                 $post_title = $stmt->fetch(PDO::FETCH_ASSOC)['titre_post'];
-                echo "<p>Voulez-vous vraiment supprimer votre post-it intitulé : \"$post_title\" ?</p>";
+                $escaped_post_title = htmlspecialchars($post_title, ENT_QUOTES, 'UTF-8');
+                echo "<p>Voulez-vous vraiment supprimer votre post-it intitulé : \"$escaped_post_title\" ?</p>";
             } else {
                 echo "<p>Aucun post trouvé avec cet ID.</p>";
             }
@@ -35,10 +37,10 @@
         ?>
 
         <form action="supp_post_2.php" method="post">
-            <a class="delete-button" href='supp_post_2.php?id=<?php echo $post_id; ?>' style="text-decoration: none;">Supprimer</a>
+            <a class="delete-button" href='supp_post_2.php?id=<?php echo htmlspecialchars($post_id, ENT_QUOTES, 'UTF-8'); ?>' style="text-decoration: none;">Supprimer</a>
             <button type="button" class="cancel-button" onclick="window.location.href = 'accueil.php';">Annuler</button>
         </form>
     </div>
+
 </body>
 </html>
-

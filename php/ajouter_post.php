@@ -27,10 +27,12 @@
             <form  id="emailForm" action="ajouter_2.php" method="POST">                
                 <label for="titre">Titre : </label>   
                 <textarea id="titre" name="titre" rows="3" cols="150" maxlength="150" required></textarea>
-                <br>                
+                <span id="titreErr" class="err"></span>
+		<br>                
                 <label for="contenu">Contenu : </label>
                 <textarea id="contenu" name="contenu" rows="4" cols="255" maxlength="255" required></textarea>
-                <br>             
+                <span id="contenuErr" class="err"></span>
+		<br>             
                 <label for="couleur">Couleur :</label>   
                 <input type="color" id="couleur" name="couleur" value="#FFFFFF" size="35">
                 <br>                
