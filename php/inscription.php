@@ -1,5 +1,10 @@
 <?php
 session_start();
+session_start();
+if (isset($_SESSION['id'])) {
+  header('Location: accueil.php');
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
