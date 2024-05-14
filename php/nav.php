@@ -1,7 +1,7 @@
 <nav>
     <div class="container">
         <div class="left">
-            <a href="#" class="logo">NomDuSite</a>
+            <a href="#" class="logo">Stick IT</a>
         </div>
         <div class="right">
             <?php 

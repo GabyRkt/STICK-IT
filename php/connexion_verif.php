@@ -30,11 +30,7 @@ if($req->rowCount() > 0){
         $_SESSION['id'] = $user['id_utilisateur'];
 
         //Redirection ver la page d'accueil
-<<<<<<< HEAD
-        header("Location: accueil_new.php");
-=======
-        header("Location: ../accueil.html");
->>>>>>> 8d8902d3a552daca5fe6ae18c0b82a99d5ee5ef4
+        header("Location: accueil.php");
         exit();
     } else {
         #echo "mot de passe ou email incorrect.";
