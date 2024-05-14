@@ -142,14 +142,14 @@ $(document).ready(function() {
             isValid = false; // Mettre isValid à false car le champ est vide
         } else {
             // Vérifier si le titre est plus long que 150 caractères
-            //if ($('#titre').val().trim().length > 150) {
-                //$('#titre').addClass('error'); // Ajouter la classe d'erreur au champ "titre"
-                //$('#titreErr').text('Le titre est trop long (maximum 150 caractères).'); // Afficher un message d'erreur
-                //isValid = false; // Mettre isValid à false car le titre est trop long
-            //} else {
-            $('#titre').removeClass('error'); // Supprimer la classe d'erreur du champ "titre"
-            $('#titreErr').text(''); // Effacer le message d'erreur
-        //}
+            if ($('#titre').val().trim().length > 150) {
+                $('#titre').addClass('error'); // Ajouter la classe d'erreur au champ "titre"
+                $('#titreErr').text('Le titre est trop long (maximum 150 caractères).'); // Afficher un message d'erreur
+                isValid = false; // Mettre isValid à false car le titre est trop long
+            } else {
+                $('#titre').removeClass('error'); // Supprimer la classe d'erreur du champ "titre"
+                $('#titreErr').text(''); // Effacer le message d'erreur
+            }
         }
 
         // Vérifier si le champ "contenu" est vide
@@ -180,7 +180,19 @@ $(document).ready(function() {
     validateForm(); // Appeler la fonction de validation initialement pour vérifier si les champs sont vides dès le chargement de la page
 });
 
-
-
-
-
+//Ne valide pas le formulaire si le titre est trop long
+function checkTitleLength() {
+    var titre = document.getElementById('titre').value;
+    var titreErr = document.getElementById('titreErr');
+    if (titre.length > 150) {
+        titreErr.textContent = "Le titre ne peut pas dépasser 150 caractères.";
+        titreErr.style.display = "block";
+        document.getElementById('titre').style.borderColor = "red";
+        return false;
+    } else {
+        titreErr.textContent = "";
+        titreErr.style.display = "none";
+        document.getElementById('titre').style.borderColor = "";
+        return true;
+    }
+}
