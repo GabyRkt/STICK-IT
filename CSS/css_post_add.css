@@ -1,26 +1,25 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Aligne le contenu en haut de la page */
-    align-items: center; /* Centre horizontalement */
-    min-height: 100vh; /* Hauteur minimale de la page, pour couvrir entièrement l'écran */
-    margin: 0;
+    justify-content: flex-start; 
+    align-items: center; 
+    min-height: 100vh; 
 }
 
 #form_ajouter {
-    width: 50%; /* Largeur du formulaire */
-    padding: 20px; /* Ajoute un espace intérieur au formulaire */
-    background-color: #f5dba9; /* Couleur de fond du formulaire */
-    border-radius: 10px; /* Coins arrondis */ 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre */
-    margin-top: 120px; /* Espace entre le formulaire et le header */
+    width: 50%; 
+    padding: 20px; 
+    background-color: #f5dba9; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    margin-top: 120px; 
 }
 
 #content {
-    background-color: white; /* Couleur de fond du cadre */
-    border-radius: 10px; /* Bord arrondi du cadre */
-    padding: 20px; /* Espace intérieur du cadre */
-    border: 2px solid #c79caa; /* Bordure solide grise autour du cadre */
+    background-color: white; 
+    border-radius: 10px; 
+    padding: 20px;
+    border: 2px solid #c79caa; 
 }
 
 form {
@@ -29,32 +28,32 @@ form {
 }
 
 label {
-    margin-bottom: 10px; /* Espacement entre les labels */
+    margin-bottom: 10px; 
 }
 
 input[type="text"],
 input[type="color"],
 select {
-    margin-bottom: 15px; /* Espacement entre les champs */
-    padding: 5px; /* Espace intérieur du champ */
-    border-radius: 5px; /* Bord arrondi des champs */
-    border: 1px solid #ccc; /* Bordure solide grise autour des champs */
+    margin-bottom: 15px; 
+    padding: 5px; 
+    border-radius: 5px; 
+    border: 1px solid #ccc; 
 }
 
 input[type="submit"] {
-    width: 100px; /* Largeur du bouton */
-    align-self: flex-end; /* Aligner le bouton à droite */
-    margin-top: 20px; /* Espacement entre le bouton et les champs */
-    border: none; /* Supprimer la bordure du bouton */
-    background-color: #c79caa; /* Couleur de fond du bouton */
-    color: white; /* Couleur du texte du bouton */
-    padding: 10px; /* Espace intérieur du bouton */
-    border-radius: 5px; /* Bord arrondi du bouton */
-    cursor: pointer; /* Curseur de la souris en forme de main au survol */
+    width: 100px; 
+    align-self: flex-end; 
+    margin-top: 20px;
+    border: none;
+    background-color: #c79caa; 
+    color: white;
+    padding: 10px; 
+    border-radius: 5px; 
+    cursor: pointer; 
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3; /* Couleur de fond du bouton au survol */
+    background-color: #0056b3; 
 }
 
 .emailBubble {
@@ -80,5 +79,5 @@ input[type="submit"]:hover {
 }
 
 label {
-    color: #c79caa; /* Couleur rose pour les labels */
+    color: #c79caa; 
 }

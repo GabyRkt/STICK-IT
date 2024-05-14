@@ -1,9 +1,9 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Aligne le contenu en haut de la page */
-    align-items: center; /* Centre horizontalement */
-    min-height: 100vh; /* Hauteur minimale de la page, pour couvrir entièrement l'écran */
+    justify-content: flex-start; 
+    align-items: center;
+    min-height: 100vh; 
     margin: 0;
 }
 

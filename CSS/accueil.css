@@ -86,9 +86,9 @@ section.flex-item {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: 10px;
-    display: flex; /* Ensure this is a flex container */
-    flex-wrap: wrap; /* Allow wrapping of child elements */
-    justify-content: center; /* Center children horizontally */
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
     align-items: center;
 }
 
@@ -97,7 +97,7 @@ section h2 {
     font-weight: 600;
     margin-top: 10px;    
     text-align: center;
-    width: 100%; /* Prend la pleine largeur pour éviter toute confusion de flottement */
+    width: 100%; 
     margin-bottom: 10px;
 }
 
