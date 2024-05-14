@@ -3,15 +3,22 @@
 
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="CSS/css_post_add.css" type="text/css">
+	<link rel="stylesheet" href="../CSS/css_post_add.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../CSS/accueil.css">
 	<title>Ajouter</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="js/add_update_post_js.js"></script> 	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/add_update_post_js.js"></script> 	
 </head>
 
 <body>
 
-    <section>
+    <header>
+    <?php
+    require_once('../php/nav.php');
+    ?>
+    </header>
+
+    <section id="form_ajouter" class="form_ajouter">
 
         <h2>Ajouter un post-it</h2>
 
@@ -19,15 +26,15 @@
 
             <form  id="emailForm" action="ajouter_2.php" method="POST">                
                 <label for="titre">Titre : </label>   
-                <input type="text"  id="titre" name="titre"  size="25" required>
+                <textarea id="titre" name="titre" rows="3" cols="150" maxlength="150" required></textarea>
                 <br>                
                 <label for="contenu">Contenu : </label>
-                <textarea id="contenu" name="contenu" rows="4" cols="25" required></textarea>
+                <textarea id="contenu" name="contenu" rows="4" cols="255" maxlength="255" required></textarea>
                 <br>             
                 <label for="couleur">Couleur :</label>   
                 <input type="color" id="couleur" name="couleur" value="#FFFFFF" size="35">
                 <br>                
-                <label for="police">Choisir une police :</label>
+                <label for="police">Police :</label>
                   <select id="police" name="police">
                     <option value="Arial">Arial</option>
                     <option value="Verdana">Verdana</option>
@@ -38,9 +45,9 @@
                 <br>
                 <label for="taille">Taille : </label>   
                 <select id="taille" name="taille">
-                    <option value="11">11</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
+                    <option value="12">12</option>
+                    <option value="14">14</option>
+                    <option value="16">16</option>
                 </select>
                 <br>
                 <label for="email">Partager avec :</label>

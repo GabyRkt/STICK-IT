@@ -1,6 +1,11 @@
 <?php
-// accès à la base de données
-include 'database\db_co.php';
+include '../database/db_co.php';
+session_start();
+
+if (!isset($_SESSION['id'])) {
+    echo json_encode(['error' => 'Utilisateur non connecté']);
+    exit;
+}
 
 // Récupérer les valeurs saisies dans le formulaire dans les variables
 $titre = $_POST['titre'];
@@ -8,11 +13,16 @@ $contenu = $_POST['contenu'];
 $couleur = $_POST['couleur'];
 $police = $_POST['police'];
 $taille = $_POST['taille'];
-$id_user = 1; // L'utilisateur connecté (vous pouvez modifier ceci selon votre système de connexion)
-
+$id_user = $_SESSION['id'];
 // Dates de création et de modification
 $date_create = date('Y-m-d H:i:s');
 $date_modif = date('Y-m-d H:i:s');
+
+// Vérifier si le titre dépasse 150 caractères
+if (strlen($titre) > 150) {
+    // Limiter le titre à 150 caractères
+    $titre = substr($titre, 0, 150);
+}
 
 // Insertion du post dans la table post
 $reqSQL = "INSERT INTO `post`(`titre_post`, `contenu_post`, `date_creation_post`, `date_derniere_modif_post`, `code_couleur_post`, `police_post`, `taille_post`, `id_utilisateur`)
@@ -67,6 +77,6 @@ if (isset($_POST['emails'])) {
     }
 }
 
-header('location:liste_post.php');
+header('location:accueil.php');
 
 ?>

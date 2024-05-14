@@ -9,7 +9,7 @@
 
 <body>
 
-    <?php include 'database\db_co.php'; ?>
+    <?php include 'database/db_co.php'; ?>
     <br>
     <h2>Listes des post</h2>
     <br>

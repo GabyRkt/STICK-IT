@@ -4,7 +4,7 @@ if (isset($_GET['id'])) {
     $post_id = $_GET['id'];
     
     // Inclure le fichier de connexion à la base de données
-    include 'database\db_co.php';
+    include '../database/db_co.php';
 
     try {
         // Début de la transaction
@@ -26,7 +26,7 @@ if (isset($_GET['id'])) {
         $db->commit();
 
         // Rediriger vers la liste des posts
-        header('location:liste_post.php');
+        header('location:../php/accueil.php');
     } catch (Exception $e) {
         // En cas d'erreur, annuler la transaction
         $db->rollBack();

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <?php include 'database\db_co.php'; ?>
+    <?php include 'database/db_co.php'; ?>
     <?php
     // Vérifie si l'identifiant du post est passé en paramètre dans l'URL
     if (isset($_GET['id'])) {

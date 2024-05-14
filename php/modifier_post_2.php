@@ -1,6 +1,6 @@
 <?php
 // Connexion à la base de données
-include 'database\db_co.php';
+include '../database/db_co.php';
 
 // On place les données du formulaire dans des variables
 $id_post = $_POST["id"];
@@ -10,6 +10,12 @@ $couleur = $_POST['couleur'];
 $police = $_POST['police'];
 $taille = $_POST['taille'];
 $date_modif = date('Y-m-d H:i:s');
+
+// Vérifier si le titre dépasse 150 caractères
+if (strlen($titre) > 150) {
+    // Limiter le titre à 150 caractères
+    $titre = substr($titre, 0, 150);
+}
 
 // Requête de mise à jour pour le post
 $reqSQL = "UPDATE post SET titre_post= :titre, contenu_post= :contenu, code_couleur_post= :couleur, police_post= :police, taille_post= :taille, date_derniere_modif_post= :date_modif WHERE id_post= :id_post";
@@ -63,6 +69,6 @@ if (isset($_POST['emails'])) {
 }
 }
 
-header('location:liste_post.php');
+header('location:../php/accueil.php');
 exit();
 ?>
