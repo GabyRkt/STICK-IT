@@ -1,7 +1,7 @@
 <?php
 // Vérifier si un ID de post est passé via GET
-if (isset($_GET['id'])) {
-    $post_id = $_GET['id'];
+if (isset($_POST['id'])) {
+    $post_id = $_POST['id'];
     
     // Inclure le fichier de connexion à la base de données
     include '../database/db_co.php';
