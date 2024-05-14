@@ -23,9 +23,9 @@
             <?php
             }else{
             ?>
-             <a href="../php/ajouter_post.php" class="nav-link">Ajouter un Post-it</a>
-             <a href="../php/deconnexion.php" class="nav-link">Deconnexion</a>
-             <a href="" class="nav-link"><?php echo $_SESSION['username']?></a>
+             <a href="../php/ajouter_post.php" class="nav-link">+ Ajouter un Post-it</a>
+             <a href="../php/deconnexion.php" class="nav-link">Déconnexion</a>
+             <a href="#" class="nav-link"><img src="../icons/person-square.svg" style="color: white; font-size: 24px; margin-right: 10px;"> <?php echo $_SESSION['username']?></a>
             <?php
             }
             ?>
