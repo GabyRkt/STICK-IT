@@ -60,9 +60,11 @@ if (isset($_GET['id'])) {
                     <input name="id" type="hidden" value="<?php echo $post_data['id_post']; ?>">
                     <label for="titre">Titre :</label>
                     <textarea id="titre" name="titre" rows="3" cols="150" maxlength="150" required><?php echo $post_titre; ?></textarea>
+                    <span id="titreErr" class="err"></span>
                     <br>
                     <label for="contenu">Contenu : </label>
                     <textarea id="contenu" name="contenu" rows="4" cols="255" maxlength="255" required><?php echo htmlspecialchars($post_contenu); ?></textarea>
+                    <span id="contenuErr" class="err"></span>
                     <br>    
                     <label for="couleur">Couleur :</label>
                     <input name="couleur" id="couleur" type="color" size="25" value="<?php echo htmlspecialchars($post_couleur); ?>">
