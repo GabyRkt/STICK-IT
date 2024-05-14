@@ -38,6 +38,11 @@ session_start();
             <label for="user">Nom d'utilisateur</label>
             <input type="text" id="user" name="user" >
             <span id="userErr" class="err"></span>
+              <?php 
+                  if(isset($_GET['userErr'])) { 
+                    echo "<span id='user_double' style='color: rgba(255, 0, 0, 0.728); font-size: 12px;'>".$_GET['userErr']."</span>"; 
+                  } 
+                ?>
           </div>
 
           <div class="control">
@@ -50,6 +55,11 @@ session_start();
             <label for="email">Email</label>
             <input type="text" id="email" name="email" >
             <span id="emailErr" class="err"></span>
+              <?php 
+                if(isset($_GET['mailErr'])) { 
+                  echo "<span id='mail_double' style='color: rgba(255, 0, 0, 0.728); font-size: 12px;'>".$_GET['mailErr']."</span><br>"; 
+                } 
+              ?>
           </div>
 
           <div class="control">
