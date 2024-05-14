@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
   let mdp_verif = document.getElementById("mdp_verif");
   let mdp_verifErr = document.getElementById("mdp_verifErr");
 
+
+  // Récupérer les variables pour gérer les mails et les nom d'utilisateurs qui doivent être unique
   let user_double = document.getElementById("user_double");
   let mail_double = document.getElementById("mail_double");
 
@@ -50,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
   champVide(user,user_double);
   champVide(date, dateErr);
   champVide(email, emailErr);
+  champVide(email,mail_double);
   champVide(email_verif, email_verifErr);
   champVide(mdp, mdpErr);
   champVide(mdp_verif, mdp_verifErr);

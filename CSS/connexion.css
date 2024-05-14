@@ -10,6 +10,7 @@ body {
     background-color: #FAF3E0; 
     color: #333; 
     margin: 0;
+    margin-top: 120px;
 }
 
 header {
@@ -127,12 +128,11 @@ nav a:hover, nav a:focus {
     }
 }
 
-
-
 h2 {
     color: #c79caa; 
     text-align: center;
-    margin-top: 150px; 
+    margin-top: 10px; 
+    margin-bottom: 5px; 
 }
 
 #connexion {
@@ -143,7 +143,6 @@ h2 {
     border-radius: 10px; 
     box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    background: linear-gradient(-135deg, transparent 1.5em, #fff);
 }
 
 
@@ -157,7 +156,7 @@ input[type="text"],
 input[type="password"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     border: 1px solid #c79caa; 
     border-radius: 5px; 
 }
@@ -172,6 +171,10 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+
+.form-cont{
+    padding-bottom : 20px;
+}
 
 
 

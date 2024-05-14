@@ -39,21 +39,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
     
-    //Validation du formulaire
-    formu_co.addEventListener('submit', function(e) {
-        //Vérification que tous les champs sont remplis
-        
-        // *** Email ***
+
+      // Fonctions de validation des champs
+    function validerEmail() {
+        let emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (email.value.trim() === "") {
             errorStyle(email, "Le champ email est requis");
-            e.preventDefault();
+            return false;
+        } else if (!email.value.match(emailFormat)) {
+            errorStyle(email, "Veuillez saisir un email valide");
+            return false;
         }
+        return true;
+    }
 
-        // *** Mot de passe ***
+    function validerMdp() {
         if (mdp.value.trim() === "") {
             errorStyle(mdp, "Le champ mot de passe est requis");
+            return false;
+        }
+        return true;
+    }
+
+
+    // Validation dynamique
+    email.addEventListener('input', validerEmail);
+    mdp.addEventListener('input', validerMdp);
+
+
+    //Validation du formulaire
+    formu_co.addEventListener('submit', function(e) {
+
+        //Vérification que tous les champs sont remplis
+        
+        if (!validerEmail() ) {
             e.preventDefault();
-    
+        }
+        if (!validerMdp() ) {
+            e.preventDefault();
         }
 
     });
