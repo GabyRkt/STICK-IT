@@ -1,10 +1,22 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligne le contenu en haut de la page */
+    align-items: center; /* Centre horizontalement */
+    min-height: 100vh; /* Hauteur minimale de la page, pour couvrir entièrement l'écran */
+    margin: 0;
+}
+
 #form_ajouter {
     width: 50%; /* Largeur du formulaire */
-    position: absolute; /* Position absolue */
-    top: 70%; /* Positionne le haut du formulaire à 50% de la hauteur du conteneur parent */
-    left: 50%; /* Positionne le côté gauche du formulaire à 50% de la largeur du conteneur parent */
-    transform: translate(-50%, -50%); /* Décale le formulaire de moitié de sa propre taille vers le haut et vers la gauche pour le centrer */
+    padding: 20px; /* Ajoute un espace intérieur au formulaire */
+    background-color: #f5dba9; /* Couleur de fond du formulaire */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre */
+    margin-top: 120px; /* Espace entre le formulaire et le header */
 }
+
+
 
 #content {
     background-color: white; /* Couleur de fond du cadre */
@@ -59,4 +71,12 @@ input[type="submit"]:hover {
 .emailBubble .close {
     cursor: pointer;
     margin-left: 5px;
+}
+
+.error {
+    border: 2px solid red;
+}
+.err {
+    color: red;
+    font-size: 12px;
 }
