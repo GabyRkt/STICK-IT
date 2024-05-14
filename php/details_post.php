@@ -1,3 +1,6 @@
+<?php
+   session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -44,7 +47,7 @@
                     <div class='post-details' style='text-align: start;'> </div>               
                         <div class='post-text' style='color:<?php echo $row['code_couleur_post']; ?>; font-size:<?php echo $row['taille_post']; ?>; font-family:<?php echo $row['police_post']; ?>;'><p><?php echo $row['contenu_post']; ?></p></div>
                         <div class='post-details'></div>
-                        <a class='back-link' style='text-align: left;' href='liste_post.php'>Retour à la liste des posts</a> 
+                        <a class='back-link' style='text-align: left;' href='../php/accueil.php'>Retour à la liste des posts</a> 
                     
                 </div>
 <?php
@@ -55,7 +58,7 @@
                     <div class='post-details' style='text-align: start;'> </div>               
                     <div class='post-text'><p>Ce post-it n'existe pas</p></div>
                     <div class='post-details'></div>
-                    <a class='back-link' style='text-align: left;' href='liste_post.php'>Retour à la liste des posts</a>   
+                    <a class='back-link' style='text-align: left;' href='../php/accueil.php'>Retour à la liste des posts</a>   
             </div>
 
         <?php
