@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
   let mdp_verif = document.getElementById("mdp_verif");
   let mdp_verifErr = document.getElementById("mdp_verifErr");
 
+  let user_double = document.getElementById("user_double");
+  let mail_double = document.getElementById("mail_double");
+
   //Effacer le message erreur "Le champs [...] est requis" une fois qu'on écrit
   function champVide(element, elementErr) {
     element.addEventListener('input', function() {
@@ -44,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
   champVide(nom, nomErr);
   champVide(prenom, prenomErr);
   champVide(user, userErr);
+  champVide(user,user_double);
   champVide(date, dateErr);
   champVide(email, emailErr);
   champVide(email_verif, email_verifErr);

@@ -2,6 +2,9 @@
 
 include '../database/db_co.php';
 
+//Variable pour le message d'erreur
+$userErr = $mailErr = "";
+
 // Récupérer les valeurs saisies dans le formulaire
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
@@ -27,11 +30,18 @@ $count_mail= $req_mail->fetchColumn();
 
 
 if ($count_user  > 0) {
-  echo "Ce nom d'utilisateur existe déjà."; }
+  $userErr = "Ce nom d'utilisateur existe déjà"; 
+  header("Location: ../php/inscription.php?userErr=$userErr");  
 
-  else if ($count_mail  > 0) {
-    echo "Cet email est déjà utilisé.";}
-
+  }
+  
+  else {
+  
+    if ($count_mail  > 0) {
+    $mailErr = "Cet email est déjà utilisé";
+    header("Location: ../php/inscription.php?mailErr=$mailErr");
+    }
+    
     else { 
 
       // L'utilisateur n'existe pas, on crée l'utilisateur
@@ -53,7 +63,6 @@ if ($count_user  > 0) {
       ));
 
       if ($res_insert) {
-          #echo "Inscription réussie !"; 
           
           $sql = "SELECT * FROM utilisateur WHERE email_utilisateur = ?";
           $req = $db->prepare($sql);
@@ -65,9 +74,10 @@ if ($count_user  > 0) {
           $_SESSION['id'] = $user['id_utilisateur'];
 
           header("Location: accueil.php");
-      } else {
-          #echo "Erreur lors de l'inscription.";
+
       }
-}
+    }
+
+  }
 
 ?>
