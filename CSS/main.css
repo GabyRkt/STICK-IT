@@ -1,0 +1,23 @@
+main.flex-container {
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    padding-top: 130px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section.bienvenue {
+    padding: 50px;
+    background-color: #f5dba9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centrer le texte */
+}
+
+section h2{
+    color: #000000;
+}
+section h1{
+    color: #ffffff;
+    font-size: 100px;
+}
