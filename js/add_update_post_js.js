@@ -9,13 +9,12 @@ $(document).ready(function() {
         var selectedColor = colorInput.val();
         contentDiv.css('background-color', selectedColor);
     }
-
-    // Ajouter un écouteur d'événements pour l'événement input sur le champ de saisie de couleur
+    
     colorInput.on('input', function() {
         updateBackgroundColor();
     });
 
-    // Déclencher manuellement l'événement input pour le champ de saisie de couleur afin de définir la couleur d'arrière-plan au chargement de la page
+    // Déclenche le input pour le champ de saisie de couleur afin de définir la couleur d'arrière-plan au chargement de la page
     updateBackgroundColor();
 });
 
@@ -38,28 +37,24 @@ $(document).ready(function() {
         contentInput.style.fontSize = selectedSize + 'px';
     }
 
-    // Ajouter un écouteur d'événements pour l'événement change sur l'élément select de la police
     selectFontElement.on('change', function() {
         updateFontFamily();
     });
 
-    // Ajouter un écouteur d'événements pour l'événement change sur l'élément select de la taille de la police
     selectSizeElement.on('change', function() {
         updateFontSize();
     });
 
-    // Déclencher manuellement l'événement change pour les éléments select afin de définir la police et la taille au chargement de la page
     updateFontFamily();
     updateFontSize();
 });
 
 // Recherche d'utilisateurs via AJAX
 $(document).ready(function() {
-    // Ajouter un écouteur d'événements pour l'événement input sur le champ email
     $('#email').on('input', function() {
         var query = $(this).val();
         if (query.length >= 3) {
-            // Récupérer les emails via AJAX et remplir le champ de sélection déroulante
+            // Récupérer les emails via AJAX et remplir la liste déroulante
             $.ajax({
                 url: 'rechercher_utilisateurs.php',
                 type: 'GET',
@@ -80,23 +75,21 @@ $(document).ready(function() {
                 }
             });
         } else {
-            $('#emailList').hide(); // Masquer le champ de sélection déroulante
-            $('#notFound').hide(); // Masquer le message "Utilisateur introuvable"
+            $('#emailList').hide(); 
+            $('#notFound').hide(); 
         }
     });
 
-    // Ajouter un écouteur d'événements pour l'événement keydown sur le champ email
     $('#email').keydown(function(event) {
-        if (event.keyCode === 13) { // Vérifier si la touche Entrée est enfoncée
+        if (event.keyCode === 13) { 
             event.preventDefault(); // Empêcher la soumission du formulaire
         }
     });
 
-    // Ajouter un écouteur d'événements pour l'événement change sur le champ de sélection déroulante email
     $('#emailList').change(function() {
         var selectedEmail = $(this).val();
-        addEmailBubble(selectedEmail); // Ajouter l'email sélectionné sous forme de bulle
-        $(this).val(null).trigger('change'); // Réinitialiser le champ de sélection déroulante
+        addEmailBubble(selectedEmail); // Ajout de l'email sélectionné sous forme de bulle
+        $(this).val(null).trigger('change'); // Réinitialise le champ de sélection déroulante
     });
 
     // Fonction pour ajouter un email sous forme de bulle
@@ -104,8 +97,6 @@ $(document).ready(function() {
         if (email && email.length > 0) {
             var bubble = $('<div class="emailBubble">' + email + '<span class="close" onclick="removeEmailBubble(this)">×</span></div>');
             $('#emailBubbles').append(bubble);
-
-            // Mettre à jour la valeur du champ caché
             updateHiddenEmails();
         }
     }
@@ -114,8 +105,6 @@ $(document).ready(function() {
     window.removeEmailBubble = function(element) {
         var bubble = $(element).parent();
         bubble.remove();
-
-        // Mettre à jour la valeur du champ caché
         updateHiddenEmails();
     };
 
@@ -133,51 +122,48 @@ $(document).ready(function() {
 // Fonction pour valider le formulaire
 $(document).ready(function() {
     function validateForm() {
-        let isValid = true; // Initialiser la variable isValid à true
+        let isValid = true; 
 
         // Vérifier si le champ "titre" est vide
         if ($('#titre').val().trim() === '') {
-            $('#titre').addClass('error'); // Ajouter la classe d'erreur au champ "titre"
-            $('#titreErr').text('Le titre est obligatoire.'); // Afficher un message d'erreur
-            isValid = false; // Mettre isValid à false car le champ est vide
+            $('#titre').addClass('error'); 
+            $('#titreErr').text('Le titre est obligatoire.'); 
+            isValid = false; 
         } else {
             // Vérifier si le titre est plus long que 150 caractères
             if ($('#titre').val().trim().length > 150) {
-                $('#titre').addClass('error'); // Ajouter la classe d'erreur au champ "titre"
-                $('#titreErr').text('Le titre est trop long (maximum 150 caractères).'); // Afficher un message d'erreur
-                isValid = false; // Mettre isValid à false car le titre est trop long
+                $('#titre').addClass('error'); 
+                $('#titreErr').text('Le titre est trop long (maximum 150 caractères).'); 
+                isValid = false; 
             } else {
-                $('#titre').removeClass('error'); // Supprimer la classe d'erreur du champ "titre"
-                $('#titreErr').text(''); // Effacer le message d'erreur
+                $('#titre').removeClass('error');
+                $('#titreErr').text('');
             }
         }
 
         // Vérifier si le champ "contenu" est vide
         if ($('#contenu').val().trim() === '') {
-            $('#contenu').addClass('error'); // Ajouter la classe d'erreur au champ "contenu"
-            $('#contenuErr').text('Le contenu est obligatoire.'); // Afficher un message d'erreur
-            isValid = false; // Mettre isValid à false car le champ est vide
+            $('#contenu').addClass('error'); 
+            $('#contenuErr').text('Le contenu est obligatoire.'); 
+            isValid = false; 
         } else {
-            $('#contenu').removeClass('error'); // Supprimer la classe d'erreur du champ "contenu"
-            $('#contenuErr').text(''); // Effacer le message d'erreur
+            $('#contenu').removeClass('error'); 
+            $('#contenuErr').text(''); 
         }
 
-        return isValid; // Retourner la validité du formulaire (true ou false)
+        return isValid; 
     }
 
-    // Ajouter un écouteur d'événements sur la soumission du formulaire
     $('#modifyForm').on('submit', function(e) {
         if (!validateForm()) { // Si le formulaire n'est pas valide
-            e.preventDefault(); // Empêcher la soumission du formulaire
+            e.preventDefault(); // Empeche la soumission 
         }
     });
 
-    // Ajouter un écouteur d'événements sur les champs "titre" et "contenu" pour vérifier en temps réel
     $('#titre, #contenu').on('input', function() {
-        validateForm(); // Appeler la fonction de validation à chaque saisie
+        validateForm(); 
     });
-
-    validateForm(); // Appeler la fonction de validation initialement pour vérifier si les champs sont vides dès le chargement de la page
+    validateForm();
 });
 
 //Ne valide pas le formulaire si le titre est trop long
