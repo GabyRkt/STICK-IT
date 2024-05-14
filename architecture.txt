@@ -1,0 +1,109 @@
+
+
+Dans le dossier TER, la plupart de nos fichiers sont organisés selon la nature du fichier (CSS, php, js). Cependant, il y a une exception avec le sous-dossier database, qui comporte les fichiers permettant de créer la structure de la base de données. De plus, le sous-dossier CSS contient les fichiers permettant de faire la mise en forme des différentes pages de notre site. Quant au sous-dossier icons, les différents fichiers nous permettent d’utiliser des icons. Enfin, le sous-dossier init-bdd contient le fichier permettant de remplir les tables de la base de données, utilisées pour faire différents tests. 
+
+Toutes nos pages PHP démarrent une session, vérifient la connexion de l'utilisateur via son identifiant dans la session et redirigent vers la page de connexion si nécessaire.
+
+------------------------------------------
+DATABASE
+------------------------------------------
+- db_create.php : 
+Le fichier permet de créer la base de données et les tables.
+
+- db_co.php:
+Le fichier de connexion à la base de données ce qui évite de faire tout le code à chaque page php de notre site. Il suffit juste de faire un “include '../database/db_co.php';” lorsqu’on a besoin de la connexion à la base.
+
+------------------------------------------
+PAGE DE GARDE
+------------------------------------------
+- main.php :
+Le fichier affiche la page principale du site, il n’a qu’un but visuel et permet d’être redirigé vers la page de connexion ou d'inscription.
+
+------------------------------------------
+ INSCRIPTION
+------------------------------------------
+
+- inscription_verif.php : 
+Le fichier permet de récupérer les valeurs saisies dans le formulaire, puis vérifie si l’utilisateur ou l’email existe déjà dans la base de données. Dans le cas échéant, il insère l’utilisateur dans la base de données. 
+
+- inscription.php : 
+Ce fichier permet d’afficher formulaire d’inscription et va faire appel à inscription.js et inscription_verif.php
+
+- inscription.js : 
+Le fichier permet de vérifier si les champs inscrits dans le formulaire d’inscription sont en bonne et due forme avant de valider le formulaire. 
+
+------------------------------------------
+ CONNEXION 
+------------------------------------------
+
+- connexion.php : 
+Le formulaire de connexion qui va faire appel à connexion.js et connexion_verif.php
+
+-connexion.js:
+Le fichier permet de vérifier si l’utilisateur à bien rempli tous les champs avec les conditions demandées avant de vérifier les éléments de connexion de celui-ci.
+
+- connexion_verif.php : 
+Le fichier permet de vérifier si les informations de connexion de l’utilisateur sont correctes ie email et son mot de passe.
+
+
+------------------------------------------
+BARRE DE NAVIGATION
+------------------------------------------
+
+- nav.php:
+Le fichier pour afficher la barre de navigation ce qui évite de faire tout le code à chaque page php pour l’afficher de notre site. Il suffit juste de faire un “include '../php/nav.php';” dans les pages du site. La particularité de cette barre de navigation est que les éléments changent en fonction de s' il détecte ou pas une session.
+
+------------------------------------------
+PAGE D’ACCUEIL
+------------------------------------------
+
+-accueil.php:
+Le fichier affiche la page d’accueil du site lorsque la session de l’utilisateur est ouverte, il affiche à gauche les post-its que l’utilisateur a créé, et à droite les post-its qu’on lui a partagés.
+
+-accueil_2.php:
+Le fichier récupère dans la base de donnée, tous les post-its que l’utilisateur de la session possède (en récupérant les post-its où l'id_utilisateur de la table ‘Post’ correspond à l’id utilisateur de la session), et, tous les post-its qui ont été partagé à l’utilisateur par un tiers (en récupérant les post-its où l’id_utilisateur de la table ‘Partage’ correspond à l’id utilisateur de la session). Les post-its sont triés par date de création grâce à un ORDER BY en sql.
+
+-accueil.js:
+Le fichier permet d’afficher dynamiquement les post-its sur la page d’accueil en utilisant les données qui ont été récupérées par le fichier accueil_2.php. Dans chaque post-it est affiché sa couleur de fond, son titre, sa date de création (qui est reformaté dans le fichier grâce à une fonction), et son propriétaire (pour les post-its partagés). Des boutons de modification et de de suppressions sont également incorporés à chaque post-it possédé.
+
+------------------------------------------
+Ajouter un post-it
+------------------------------------------
+
+- ajouter_post.php:
+Cette page permet aux utilisateurs connectés de créer un nouveau post-it en saisissant son titre, son contenu, sa couleur, sa police et sa taille de texte. Tous les contenus de textes sont acceptés, y compris les requêtes SQL et les codes HTML par exemple.  Elle offre également la possibilité de partager le post-it avec d'autres utilisateurs en renseignant au moins 3 caractères de leurs adresses email. Le formulaire envoie les données à ajouter_2.php pour traitement lors de l'ajout du post-it.
+
+- ajouter_2.php:
+Ce fichier PHP gère l'ajout d'un nouveau post-it en récupérant et traitant les données du formulaire ajouter_post.php. Il valide les données, insère le post-it dans les tables "post” et “partage” de la base de données, puis redirige l'utilisateur vers la page d'accueil.
+
+- add_update_post_js.js:
+Ce fichier JavaScript gère plusieurs fonctionnalités sur une page d'ajout de post-it. Il permet la personnalisation en temps réel du post-it en mettant à jour la couleur d'arrière-plan, la police de caractères et la taille du contenu. Il facilite le partage avec d'autres utilisateurs en effectuant une recherche d'utilisateurs via AJAX et en gérant la sélection d'emails. Il valide également les entrées du formulaire pour s'assurer que les informations nécessaires sont fournies avant l'ajout du post-it.
+
+- rechercher_utilisateurs.php:
+Ce script PHP traite une requête AJAX pour rechercher des utilisateurs dans la base de données. Il récupère le paramètre de recherche, exécute une requête SQL Select, traite les résultats et renvoie une réponse JSON. Cela permet d’afficher les mails dans la liste déroulante dans la partie partage du formulaire.
+
+------------------------------------------
+Modifier un post-it
+------------------------------------------
+
+- modifier_post.php:
+Cette page permet aux utilisateurs connectés de modifier l'un de leurs post-it en utilisant un formulaire pré-rempli avec les informations actuelles. La page récupère les informations stockées dans la base de données en utilisant une requête SQL SELECT et affiche les détails dans le formulaire. L'utilisateur peut modifier les champs tout en s'assurant de remplir les champs obligatoires avant de soumettre le formulaire.
+
+- modifier_post_2.php:
+Après que l'utilisateur ait validé le formulaire de modification du post-it via la page modifier_post.php, les données sont envoyées à cette page pour traitement. Nous effectuons une mise à jour de la table "post" avec l'ensemble des champs, y compris la date de modification. En ce qui concerne le partage, un delete est effectué pour supprimer l'ancien post-it avant d'effectuer un insert avec les nouveaux utilisateurs partagés. 
+
+- add_update_post_js.js:
+Ce fichier JavaScript gère plusieurs fonctionnalités sur la page de modification de post-it. Il permet la personnalisation en temps réel du post-it en mettant à jour la couleur d'arrière-plan, la police de caractères et la taille du contenu. Il facilite le partage avec d'autres utilisateurs en effectuant une recherche d'utilisateurs via AJAX et en gérant la sélection d'emails. Il valide également les entrées du formulaire pour s'assurer que les informations nécessaires sont fournies avant l'ajout du post-it.
+
+- rechercher_utilisateurs.php:
+Ce script PHP traite une requête AJAX pour rechercher des utilisateurs dans la base de données. Il récupère le paramètre de recherche, exécute une requête SQL Select, traite les résultats et renvoie une réponse JSON. Cela permet d’afficher les mails dans la liste déroulante dans la partie partage du formulaire.
+
+------------------------------------------
+Supprimer un post-it
+------------------------------------------
+
+- supprimer_post.php:
+Cette page permet à un utilisateur connecté de supprimer définitivement un de ses post-it, ainsi que pour les utilisateurs avec qui il a partagé ce post-it. Le contenu affiche un message pour confirmer la suppression d'un post-it en récupérant l'ID du post depuis l'URL et en vérifiant que le post existe et appartient à l'utilisateur connecté. 
+
+- supp_post_2.php:
+Cette page est la suite de supprimer_post.php. Lorsque l'utilisateur clique sur le bouton "Supprimer", l'ID du post-it est récupéré en POST et supprimé dans les tables "partage" puis "post" de la base de données en raison des dépendances entre ces tables. 
