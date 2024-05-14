@@ -59,104 +59,143 @@ document.addEventListener('DOMContentLoaded', function() {
     if (erreur) {
       erreur.innerHTML = errorMessage;
       erreur.style.color = "red";
+      erreur.style.fontSize = "12px";
 
       element.style.backgroundColor = '#FFE8E8'; // Fond rouge clair
       element.style.border = '1px solid red'; // Bordure rouge
+
     } 
 
   }
 
-//Validation du formulaire
-  formulaire.addEventListener('submit', function(e) {
-    //Vérification que tous les champs sont remplis
 
-    // *** Nom ***
-    if (nom.value.trim() === "") {
-      errorStyle(nom, "Le champ nom est requis");
-      e.preventDefault();
-    }
-
-    // *** Prénom ***
-    if (prenom.value.trim() === "") {
-      errorStyle(prenom,"Le champ prénom est requis");
-      e.preventDefault();
-    } 
-
-    // *** Username ***
-    if (user.value.trim() === "") {
-      errorStyle(user, "Le champ nom d'utilisateur est requis");
-      e.preventDefault();
-    }
-
-    // *** Date de naissance ***
-    let dateFormat = /^\d{4}\/\d{2}\/\d{2}$/;
-
-    if (date.value.trim() === "") {
-      errorStyle(date, "Le champ date de naissance est requis");
-      e.preventDefault();
-    } else { 
-
-     //Verifier que la date de naissance soit bien dans le format AAAA/MM/JJ
-      if (!date.value.match(dateFormat)) {
-          errorStyle(date,"Veuillez saisir une date de naissance valide (AAAA/MM/JJ)");
-          e.preventDefault(); 
+  // Fonctions de validation des champs
+  function validerNom() {
+      if (nom.value.trim() === "") {
+          errorStyle(nom, "Le champ nom est requis");
+          return false;
       }
-    }
+      return true;
+  }
 
-
-    // *** Email ***
-    let emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (email.value.trim() === "") {
-      errorStyle(email, "Le champ email est requis");
-      e.preventDefault();
-    } else {
-
-      //Verifier que l'email soit bien sur le format login@domaine.extension
-      if (!email.value.match(emailFormat)) {
-        errorStyle(email, "Veuillez saisir un email valide");
-        e.preventDefault(); // Empêche la soumission du formulaire
+  function validerPrenom() {
+      if (prenom.value.trim() === "") {
+          errorStyle(prenom, "Le champ prénom est requis");
+          return false;
       }
-    }
+      return true;
+  }
 
-    // *** Confirmation Email ***
-    if (email_verif.value.trim() === "") {
-      errorStyle(email_verif, "Le champ confirmation email est requis");
-      e.preventDefault();
-    }
+  function validerUser() {
+      if (user.value.trim() === "") {
+          errorStyle(user, "Le champ nom d'utilisateur est requis");
+          return false;
+      }
+      return true;
+  }
 
-    //Verifier que le "confirmer email" soit le meme que l'email
-    if (email_verif.value !== email.value) {
-      errorStyle(email_verif, "Les adresses email ne correspondent pas");
-      e.preventDefault(); // Empêche la soumission du formulaire
-    }
+  function validerDate() {
+      let dateFormat = /^\d{4}\/\d{2}\/\d{2}$/;
+      if (date.value.trim() === "") {
+          errorStyle(date, "Le champ date de naissance est requis");
+          return false;
 
-    // *** Mot de passe ***
-    if (mdp.value.trim() === "") {
-      errorStyle(mdp, "Le champ mot de passe est requis");
-      e.preventDefault();
+      } else if (!date.value.match(dateFormat)) {
+          errorStyle(date, "Veuillez saisir une date de naissance valide (AAAA/MM/JJ)");
+          return false;
+      }
 
-    } else {
+      return true;
+  }
 
-      //Verifier que la mot de passe est au moins 6 caracteres
-      if (mdp.value.trim().length < 6) {
+  function validerEmail() {
+      let emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email.value.trim() === "") {
+          errorStyle(email, "Le champ email est requis");
+          return false;
+      } else if (!email.value.match(emailFormat)) {
+          errorStyle(email, "Veuillez saisir un email valide");
+          return false;
+      }
+      return true;
+  }
+
+  function validerEmailVerif() {
+      if (email_verif.value.trim() === "") {
+          errorStyle(email_verif, "Le champ confirmation email est requis");
+          return false;
+      } else if (email_verif.value !== email.value) {
+          errorStyle(email_verif, "Les adresses email ne correspondent pas");
+          return false;
+      }
+      return true;
+  }
+
+  function validerMdp() {
+      if (mdp.value.trim() === "") {
+          errorStyle(mdp, "Le champ mot de passe est requis");
+          return false;
+      } else if (mdp.value.trim().length < 6) {
           errorStyle(mdp, "Le mot de passe doit avoir au moins 6 caractères");
+          return false;
+      }
+
+      return true;
+  }
+
+  function validerMdpVerif() {
+      if (mdp_verif.value.trim() === "") {
+          errorStyle(mdp_verif, "Le champ confirmation mot de passe est requis");
+          return false;
+
+      } else if (mdp_verif.value !== mdp.value) {
+          errorStyle(mdp_verif, "Les mots de passe ne correspondent pas");
+          return false;
+      }
+
+      return true;
+  }
+
+
+  // Validation du formulaire 
+  formulaire.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Validation dynamique
+      nom.addEventListener('input', validerNom);
+      prenom.addEventListener('input', validerPrenom);
+      user.addEventListener('input', validerUser);
+      date.addEventListener('input', validerDate);
+      email.addEventListener('input', validerEmail);
+      email_verif.addEventListener('input', validerEmailVerif);
+      mdp.addEventListener('input', validerMdp);
+      mdp_verif.addEventListener('input', validerMdpVerif);
+      
+     // Vérification lors de la validation
+      if (!validerNom() ) {
           e.preventDefault();
       }
-    }
-
-
-    // *** Confirmation Mot de passe ***
-    if (mdp_verif.value.trim() === "") {
-      errorStyle(mdp_verif, "Le champ confirmation mot de passe est requis");
-      e.preventDefault();
-    }
-
-    //Verifier que le "confirmer mot de passe" est le meme que le mot de passe
-    if (mdp_verif.value !== mdp.value) {
-      errorStyle(mdp_verif, "Les mots de passe ne correspondent pas");
-      e.preventDefault();
-    }
-
+      if (!validerPrenom() ) {
+          e.preventDefault();
+      }
+      if (!validerUser() ) {
+          e.preventDefault();
+      }
+      if (!validerDate()) {
+          e.preventDefault();
+      }
+      if (!validerEmail() ) {
+          e.preventDefault();
+      }
+      if (!validerEmailVerif()) {
+          e.preventDefault();
+      }
+      if (!validerMdp()) {
+          e.preventDefault();
+      }
+      if (!validerMdpVerif()) {
+          e.preventDefault();
+      }
   });
+
 });

@@ -159,22 +159,14 @@ label {
 .control {
     display: flex;
     flex-direction: column;
-    /* padding-bottom: 10px; */
+    padding-bottom: 20px;
 }
 
-.control input {
-    border: 2px solid #f0f0f0;
-	border-radius: 4px;
-	font-size: 12px;
-	padding: 4px;
-	width: 90%;
-}
 
 input[type="text"],
 input[type="password"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
     border: 1px solid #c79caa; 
     border-radius: 5px; 
 }

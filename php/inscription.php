@@ -18,7 +18,7 @@ session_start();
     </header>
     
     <div id="inscription">
-      <form action="php/inscription_verif.php" method="post" id="formulaire">
+      <form action="inscription_verif.php" method="post" id="formulaire">
         
         <h2>Inscription</h2>
 
