@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     //Validation du formulaire
-    formulaire.addEventListener('submit', function(e) {
+    formu_co.addEventListener('submit', function(e) {
         //Vérification que tous les champs sont remplis
         
         // *** Email ***

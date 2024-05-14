@@ -81,48 +81,8 @@ nav a:hover, nav a:focus {
 
 /*responsive*/
 @media screen and (max-width: 1200px) {
-    .container {
-        justify-content: space-between; 
-    }
-
-    .right {
-        flex: 1;
-        text-align: right;
-        display: flex;
-        justify-content: flex-end; 
-    }
-
-    .burger {
-        display: block;
-    }
-
-    .burger.active .line:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-
-    .burger.active .line:nth-child(2) {
-        opacity: 0;
-    }
-
-    .burger.active .line:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
-
-    .right .nav-link {
-        display: none; 
-    }
-
-    .nav-list {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        display: none; 
-    }
     
-    .nav-list.active {
-        display: block; 
-    }
-}
+}   
 
 /* main*/
 .flex-container {
@@ -158,20 +118,20 @@ section h2 {
     margin-bottom: 10px;
 }
 
-@media screen and (max-width: 768px) { /* Update media query breakpoint if necessary */
+@media screen and (max-width: 768px) { 
     section {
-        width: 100%; /* Each section takes full width */
+        width: 100%; 
         margin-bottom: 20px;
     }
 }
 
 .sticky-note {
-    width: calc(50% - 50px); /* Adjust width to fit within the container, accounting for padding */
+    width: calc(50% - 50px); 
     border-radius: 15px;
     padding: 10px;
-    margin: 10px; /* Adjust margins for spacing */
+    margin: 10px; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: inline-block; /* Inline-block for layout */
+    display: inline-block; 
     text-align: center;
     
 }
@@ -183,12 +143,12 @@ section h2 {
 
 /* Supprime la couleur par défaut des liens et utilise une couleur personnalisée */
 a.title-link:link, a.title-link:visited {
-    color: rgb(50, 50, 50); /* Définit tous les liens à noir */
-    text-decoration: none; /* Optionnel: enlève le soulignement */
+    color: rgb(50, 50, 50); 
+    text-decoration: none; 
 }
 
 a.title-link:hover, a.title-link:active {
-    color: rgb(254, 175, 94); /* Couleur pour les états hover et active */
+    color: rgb(254, 175, 94); 
 }
 
 .note-info{
@@ -200,6 +160,8 @@ a.title-link:hover, a.title-link:active {
 .note-button, .note-user{
     margin-left: auto;;
 }
+
+
 
 
 

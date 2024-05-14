@@ -21,8 +21,8 @@ if($req->rowCount() > 0){
     $mdp_bd = $user['mdp_utilisateur'];
 
     //Vérifie le mot de passe (à changer)
-    if($mdp_formu === $mdp_bd) {
-        //Connexion réuss
+    if(password_verify($mdp_formu, $user['mdp_utilisateur'])) {
+        //Connexion réussie
 
         //Démarre la session et on stocke le username et l'id de l'utilisateur
         session_start();

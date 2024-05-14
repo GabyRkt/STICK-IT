@@ -1,6 +1,6 @@
 <?php
 session_start();
-//fbloquer la page de connexion une fois que la session de l'utilisateur est ouverte
+//bloquer la page de connexion une fois que la session de l'utilisateur est ouverte
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,12 +35,12 @@ session_start();
       <div id="err_msg">
         <?php 
         if(isset($_GET['mdpErr'])) { 
-          echo "<span class='err'>" . $_GET['mdpErr'] . "</span><br>"; 
+          echo "<span class='err' style= 'color: rgba(255, 0, 0, 0.728)'>" . $_GET['mdpErr'] . "</span><br>"; 
           } ?>
 
         <?php 
         if(isset($_GET['compteErr'])) { 
-          echo "<span class='err'>" . $_GET['compteErr'] . "</span><br>"; 
+          echo "<span class='err' style= 'color: rgba(255, 0, 0, 0.728)' >" . $_GET['compteErr'] . "</span><br>"; 
           } ?>
       </div>
       

@@ -53,9 +53,20 @@ if ($count_user  > 0) {
       ));
 
       if ($res_insert) {
-          echo "Inscription réussie !"; // Ou redirigez vers une autre page
+          #echo "Inscription réussie !"; 
+          
+          $sql = "SELECT * FROM utilisateur WHERE email_utilisateur = ?";
+          $req = $db->prepare($sql);
+          $req->execute([$_POST['email']]);
+          $user = $req->fetch(PDO::FETCH_ASSOC);
+
+          session_start();
+          $_SESSION['username'] = $user['username_utilisateur'];
+          $_SESSION['id'] = $user['id_utilisateur'];
+
+          header("Location: accueil.php");
       } else {
-          echo "Erreur lors de l'inscription.";
+          #echo "Erreur lors de l'inscription.";
       }
 }
 

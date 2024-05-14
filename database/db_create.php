@@ -42,7 +42,7 @@ try {
     nom_utilisateur VARCHAR(50),
     prenom_utilisateur VARCHAR(50),
     email_utilisateur VARCHAR(50),
-    mdp_utilisateur VARCHAR(50),
+    mdp_utilisateur VARCHAR(2000),
     date_naissance_utilisateur DATE,
     PRIMARY KEY(id_utilisateur)
     )";
