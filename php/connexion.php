@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (isset($_SESSION['id'])) {
+  header('Location: accueil.php');
+  exit();
+}
 //bloquer la page de connexion une fois que la session de l'utilisateur est ouverte
 ?>
 <!DOCTYPE html>
