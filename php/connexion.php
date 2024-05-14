@@ -3,7 +3,7 @@ session_start();
 //bloquer la page de connexion une fois que la session de l'utilisateur est ouverte
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <title>Connexion</title>
