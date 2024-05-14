@@ -59,7 +59,7 @@ if (isset($_GET['id'])) {
                 <form  id="emailForm" action="modifier_post_2.php" method="POST">                
                     <input name="id" type="hidden" value="<?php echo $post_data['id_post']; ?>">
                     <label for="titre">Titre :</label>
-                    <textarea id="titre" name="titre" rows="3" cols="150" maxlength="150" required><?php echo $post_titre; ?></textare>
+                    <textarea id="titre" name="titre" rows="3" cols="150" maxlength="150" required><?php echo $post_titre; ?></textarea>
                     <br>
                     <label for="contenu">Contenu : </label>
                     <textarea id="contenu" name="contenu" rows="4" cols="255" maxlength="255" required><?php echo htmlspecialchars($post_contenu); ?></textarea>
