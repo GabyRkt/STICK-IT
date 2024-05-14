@@ -10,7 +10,7 @@ if (isset($_SESSION['id'])) {
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <title>Connexion</title>
+    <title>Connexion - Stick IT</title>
     <link rel="stylesheet" type="text/css" href="../CSS/connexion.css">
     <script src="../js/connexion.js"></script>
   </head>

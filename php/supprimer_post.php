@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../CSS/css_post_supp.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="../CSS/accueil.css">
-    <title>Supprimer</title>
+    <title>Supprimer Post - Stick IT</title>
 </head>
 <body>
     <header>

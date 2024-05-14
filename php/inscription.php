@@ -10,7 +10,7 @@ if (isset($_SESSION['id'])) {
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <title>Inscription</title>
+    <title>Inscription - Stick IT</title>
     <link rel="stylesheet" href="../CSS/inscription.css">
     <script src="../js/inscription.js"></script>
   </head>

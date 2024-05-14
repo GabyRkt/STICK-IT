@@ -14,7 +14,7 @@
     </header>
      
     <div class="supp-user">
-        <h2>Supprimer un utilisateur</h2>
+        <h2>Supprimer Utilisateur - Stick IT</h2>
         <br>
         <?php
         if (isset($_GET['id'])) {

@@ -12,7 +12,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="../CSS/css_post_add.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="../CSS/accueil.css">
-	<title>Ajouter</title>
+	<title>Ajouter Post - Stick IT</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/add_update_post_js.js"></script> 	
 </head>
