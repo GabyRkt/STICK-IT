@@ -35,12 +35,12 @@ session_start();
       <div id="err_msg">
         <?php 
         if(isset($_GET['mdpErr'])) { 
-          echo "<span class='err' style= 'color: rgba(255, 0, 0, 0.728)'>" . $_GET['mdpErr'] . "</span>"; 
+          echo "<span class='err' style='color: rgba(255, 0, 0, 0.728); font-size: 12px;'>" . $_GET['mdpErr'] . "</span>"; 
           } ?>
 
         <?php 
         if(isset($_GET['compteErr'])) { 
-          echo "<span class='err' style= 'color: rgba(255, 0, 0, 0.728)' >" . $_GET['compteErr'] . "</span>"; 
+          echo "<span class='err' style='color: rgba(255, 0, 0, 0.728); font-size: 12px;' >" . $_GET['compteErr'] . "</span>"; 
           } ?>
       </div>
       

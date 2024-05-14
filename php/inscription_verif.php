@@ -63,17 +63,8 @@ if ($count_user  > 0) {
       ));
 
       if ($res_insert) {
-          
-          $sql = "SELECT * FROM utilisateur WHERE email_utilisateur = ?";
-          $req = $db->prepare($sql);
-          $req->execute([$_POST['email']]);
-          $user = $req->fetch(PDO::FETCH_ASSOC);
 
-          session_start();
-          $_SESSION['username'] = $user['username_utilisateur'];
-          $_SESSION['id'] = $user['id_utilisateur'];
-
-          header("Location: accueil.php");
+          header("Location: connexion.php");
 
       }
     }
