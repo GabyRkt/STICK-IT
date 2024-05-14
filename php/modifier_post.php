@@ -68,7 +68,7 @@ if (isset($_GET['id'])) {
                 <form  id="emailForm" action="modifier_post_2.php" method="POST">                
                     <input name="id" type="hidden" value="<?php echo $post_data['id_post']; ?>">
                     <label for="titre">Titre :</label>
-                    <textarea id="titre" name="titre" rows="3" cols="150" maxlength="150" required><?php echo $post_titre; ?></textarea>
+                    <textarea id="titre" name="titre" rows="3" required><?php echo $post_titre; ?></textarea>
                     <span id="titreErr" class="err"></span>
                     <br>
                     <label for="contenu">Contenu : </label>
@@ -107,7 +107,7 @@ if (isset($_GET['id'])) {
                     </select>
                     <div id="notFound" style="display: none;">Utilisateur introuvable</div>
                     <br>                   
-                    <input type="submit" value="Modifier"> 
+                    <input type="submit" value="Modifier" onclick="return checkTitleLength()"> 
                 </form>
             </div>
         </section>
