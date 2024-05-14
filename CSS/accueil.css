@@ -27,7 +27,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 10px;
 }
 
 .left {
@@ -65,24 +65,7 @@ nav a:hover, nav a:focus {
     color: #fff;
     text-decoration: none;
     margin-left: 20px;
-}
-
-.burger {
-    display: none; 
-    cursor: pointer;
-}
-
-.burger .line {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 5px;
-}
-
-/*responsive*/
-@media screen and (max-width: 1200px) {
-    
-}   
+} 
 
 /* main*/
 .flex-container {
@@ -161,7 +144,33 @@ a.title-link:hover, a.title-link:active {
     margin-left: auto;;
 }
 
+/*responsive*/
+@media screen and (max-width: 1200px) {
+    .right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
 
+    .right .nav-link {
+        margin: 5px 0;
+    }
+
+    header {
+        padding: 2px;
+    }
+
+    .flex-container { 
+        padding-top: 190px;
+        display: block;
+        
+    }
+    section.flex-item {
+        width: calc(100% - 20px);
+    }
+
+    
+}  
 
 
 

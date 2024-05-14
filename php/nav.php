@@ -1,7 +1,17 @@
 <nav>
     <div class="container">
         <div class="left">
+            <?php 
+            if(!isset($_SESSION['id'])){
+            ?>
+            <a href="../php/main.php" class="logo">Stick IT</a>
+            <?php
+            }else{
+            ?>
             <a href="../php/accueil.php" class="logo">Stick IT</a>
+            <?php
+            }
+            ?>
         </div>
         <div class="right">
             <?php 
@@ -15,11 +25,11 @@
             ?>
              <a href="../php/ajouter_post.php" class="nav-link">Ajouter un Post-it</a>
              <a href="../php/deconnexion.php" class="nav-link">Deconnexion</a>
-             <a href="#" class="nav-link"><?php echo $_SESSION['username']?></a>
+             <a href="" class="nav-link"><?php echo $_SESSION['username']?></a>
             <?php
             }
             ?>
-
+            
         </div>
     </div>
 </nav>
