@@ -1,3 +1,4 @@
+// Mise à jour de la couleur d'arrière-plan
 $(document).ready(function() {
     // Récupérer les références au champ de saisie de couleur et à la div
     var colorInput = $('#couleur');
@@ -18,6 +19,7 @@ $(document).ready(function() {
     updateBackgroundColor();
 });
 
+// Mise à jour de la police de caractères et de la taille
 $(document).ready(function() {
     // Récupérer les références aux éléments select
     var selectFontElement = $('#police');
@@ -51,6 +53,7 @@ $(document).ready(function() {
     updateFontSize();
 });
 
+// Recherche d'utilisateurs via AJAX
 $(document).ready(function() {
     // Ajouter un écouteur d'événements pour l'événement input sur le champ email
     $('#email').on('input', function() {
@@ -126,3 +129,58 @@ $(document).ready(function() {
         $('#emails').val(emails.join(','));
     }
 });
+
+// Fonction pour valider le formulaire
+$(document).ready(function() {
+    function validateForm() {
+        let isValid = true; // Initialiser la variable isValid à true
+
+        // Vérifier si le champ "titre" est vide
+        if ($('#titre').val().trim() === '') {
+            $('#titre').addClass('error'); // Ajouter la classe d'erreur au champ "titre"
+            $('#titreErr').text('Le titre est obligatoire.'); // Afficher un message d'erreur
+            isValid = false; // Mettre isValid à false car le champ est vide
+        } else {
+            // Vérifier si le titre est plus long que 150 caractères
+            //if ($('#titre').val().trim().length > 150) {
+                //$('#titre').addClass('error'); // Ajouter la classe d'erreur au champ "titre"
+                //$('#titreErr').text('Le titre est trop long (maximum 150 caractères).'); // Afficher un message d'erreur
+                //isValid = false; // Mettre isValid à false car le titre est trop long
+            //} else {
+            $('#titre').removeClass('error'); // Supprimer la classe d'erreur du champ "titre"
+            $('#titreErr').text(''); // Effacer le message d'erreur
+        //}
+        }
+
+        // Vérifier si le champ "contenu" est vide
+        if ($('#contenu').val().trim() === '') {
+            $('#contenu').addClass('error'); // Ajouter la classe d'erreur au champ "contenu"
+            $('#contenuErr').text('Le contenu est obligatoire.'); // Afficher un message d'erreur
+            isValid = false; // Mettre isValid à false car le champ est vide
+        } else {
+            $('#contenu').removeClass('error'); // Supprimer la classe d'erreur du champ "contenu"
+            $('#contenuErr').text(''); // Effacer le message d'erreur
+        }
+
+        return isValid; // Retourner la validité du formulaire (true ou false)
+    }
+
+    // Ajouter un écouteur d'événements sur la soumission du formulaire
+    $('#modifyForm').on('submit', function(e) {
+        if (!validateForm()) { // Si le formulaire n'est pas valide
+            e.preventDefault(); // Empêcher la soumission du formulaire
+        }
+    });
+
+    // Ajouter un écouteur d'événements sur les champs "titre" et "contenu" pour vérifier en temps réel
+    $('#titre, #contenu').on('input', function() {
+        validateForm(); // Appeler la fonction de validation à chaque saisie
+    });
+
+    validateForm(); // Appeler la fonction de validation initialement pour vérifier si les champs sont vides dès le chargement de la page
+});
+
+
+
+
+
