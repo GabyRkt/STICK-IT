@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../CSS/css_post_supp.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="../CSS/accueil.css">
-    <title>Supprimer User</title>
+    <title>Supprimer User - Stick IT</title>
 </head>
 <body>
     <header>
@@ -14,7 +14,7 @@
     </header>
      
     <div class="supp-user">
-        <h2>Supprimer Utilisateur - Stick IT</h2>
+        <h2>Supprimer un utilisateur</h2>
         <br>
         <?php
         if (isset($_GET['id'])) {
