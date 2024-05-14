@@ -8,7 +8,7 @@
             if(!isset($_SESSION['id'])){
             ?>
             <a href="../php/connexion.php" class="nav-link">Connexion</a>
-            <a href="../inscription.html" class="nav-link">Inscription</a>
+            <a href="../php/inscription.php" class="nav-link">Inscription</a>
 
             <?php
             }else{

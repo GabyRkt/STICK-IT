@@ -173,10 +173,12 @@ section h2 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     display: inline-block; /* Inline-block for layout */
     text-align: center;
+    
 }
 
 .note-title {
     font-weight: 900;
+    word-wrap: break-word;
 }
 
 /* Supprime la couleur par défaut des liens et utilise une couleur personnalisée */

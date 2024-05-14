@@ -1,62 +1,79 @@
 <?php
-
-include '../database/db_co.php';
-
-// Récupérer les valeurs saisies dans le formulaire
-$nom = $_POST['nom'];
-$prenom = $_POST['prenom'];
-$user = $_POST['user'];
-$date = $_POST['date'];
-$email = $_POST['email'];
-$email_verif = $_POST['email_verif'];
-$mdp = $_POST['mdp'];
-$mdp_verif = $_POST['mdp_verif'];
-
-
-// Vérifier si le nom d'utilisateur existe déjà
-$reqSQL_user = "SELECT COUNT(*) FROM Utilisateur WHERE username_utilisateur = :user";
-$req_user = $db->prepare($reqSQL_user);
-$req_user-> execute(array(':user' => $user));
-$count_user = $req_user->fetchColumn();
-
-// Vérifier si le mail est déjà utilisé
-$reqSQL_mail = "SELECT COUNT(*) FROM Utilisateur WHERE email_utilisateur = :email";
-$req_mail = $db->prepare($reqSQL_mail);
-$req_mail-> execute(array(':email' => $email));
-$count_mail= $req_mail->fetchColumn();
-
-
-if ($count_user  > 0) {
-  echo "Ce nom d'utilisateur existe déjà."; }
-
-  else if ($count_mail  > 0) {
-    echo "Cet email est déjà utilisé.";}
-
-    else { 
-
-      // L'utilisateur n'existe pas, on crée l'utilisateur
-
-      // Hacher le mot de passe
-      $mdp_hash = password_hash($mdp, PASSWORD_DEFAULT);
-
-      // Insérer l'utilisateur dans la base de données
-      $resSQL_insert = "INSERT INTO Utilisateur (username_utilisateur, nom_utilisateur, prenom_utilisateur, email_utilisateur, mdp_utilisateur, date_naissance_utilisateur) VALUES (:user, :nom, :prenom, :email, :mdp, :date)";
-
-      $res_insert = $db->prepare($resSQL_insert);
-      $res_insert->execute(array(
-          ':user' => $user,
-          ':nom' => $nom,
-          ':prenom' => $prenom,
-          ':email' => $email,
-          ':mdp' => $mdp_hash,
-          ':date' => $date
-      ));
-
-      if ($res_insert) {
-          echo "Inscription réussie !"; // Ou redirigez vers une autre page
-      } else {
-          echo "Erreur lors de l'inscription.";
-      }
-}
-
+session_start();
 ?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="../CSS/inscription.css">
+    <script src="../js/inscription.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <?php
+      require_once('../php/nav.php');
+      ?>
+    </header>
+    
+    <div id="inscription">
+      <form action="php/inscription_verif.php" method="post" id="formulaire">
+        
+        <h2>Inscription</h2>
+
+          <div class="control">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom">
+            <span id="nomErr" class="err"></span>
+          </div>
+
+          <div class="control">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom">
+            <span id="prenomErr" class="err"></span>
+          </div>
+
+          <div class="control">
+            <label for="user">Nom d'utilisateur</label>
+            <input type="text" id="user" name="user" >
+            <span id="userErr" class="err"></span>
+          </div>
+
+          <div class="control">
+            <label for="date">Date de naissance (AAAA/MM/JJ)</label>
+            <input type="text" id="date" name="date" >
+            <span id="dateErr" class="err"></span>
+          </div>
+
+          <div class="control">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" >
+            <span id="emailErr" class="err"></span>
+          </div>
+
+          <div class="control">
+            <label for="email_verif">Confirmer Email</label>
+            <input type="text" id="email_verif" name="email_verif" >
+            <span id="email_verifErr" class="err"></span>
+          </div>
+
+          <div class="control">
+            <label for="mdp">Mot de passe</label>
+            <input type="password" id="mdp" name="mdp" >
+            <span id="mdpErr" class="err"></span>
+          </div>
+
+          <div class="control">
+            <label for="mdp_verif">Confirmer Mot de passe</label>
+            <input type="password" id="mdp_verif" name="mdp_verif" >
+            <span id="mdp_verifErr" class="err"></span>
+          </div>
+
+          <button type="submit">S'inscrire</button>
+
+      </form>
+
+    </div>
+  </body>
+</html>

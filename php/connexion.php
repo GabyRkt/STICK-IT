@@ -1,5 +1,6 @@
 <?php
 session_start();
+//fbloquer la page de connexion une fois que la session de l'utilisateur est ouverte
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,15 +17,19 @@ session_start();
     ?>
     </header>
     <h2>Connexion</h2>
-    <form action="connexion_verif.php" method="post" id="connexion" onsubmit="return validateFormAndSubmit()">
+    <form action="connexion_verif.php" method="post" id="connexion">
 
-      <label for="email">Email :</label><br>
-      <input type="text" id="email" name="email" ><br>
-      
+      <div class = "form-cont">
+        <label for="email">Email :</label><br>
+        <input type="text" id="email" name="email" ><br>
+        <span id="emailErr" class="err"></span>
+      </div>
 
-      <label for="mdp">Mot de passe :</label><br>
-      <input type="password" id="mdp" name="mdp" ><br><br>
-      
+      <div class ="form-cont">
+        <label for="mdp">Mot de passe :</label><br>
+        <input type="password" id="mdp" name="mdp" ><br><br>
+        <span id="mdpErr" class="err"></span>
+      </div>
       
       <input type="submit" value="Se connecter"><br>
       <div id="err_msg">
