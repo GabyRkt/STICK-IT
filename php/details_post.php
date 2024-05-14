@@ -2,7 +2,7 @@
    session_start();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -13,10 +13,10 @@
 </head>
 
 <body>
-<header>
-    <?php
-    require_once('../php/nav.php');
-    ?>
+    <header>
+        <?php
+        require_once('../php/nav.php');
+        ?>
     </header>
     <?php include '../database/db_co.php'; ?>
 
