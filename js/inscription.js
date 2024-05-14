@@ -103,6 +103,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function validerDate() {
       let dateFormat = /^\d{4}\/\d{2}\/\d{2}$/;
+      let [year, month, day] = date.value.split('/').map(Number);
+
+      
       if (date.value.trim() === "") {
           errorStyle(date, "Le champ date de naissance est requis");
           return false;
@@ -112,6 +115,23 @@ document.addEventListener('DOMContentLoaded', function() {
           return false;
       }
 
+      if (year < 1800 || year > 2020) {
+        errorStyle(date, "Veuillez saisir une année entre 1800 et 2020");
+        return false;
+    }
+
+    if (month < 1 || month > 12) {
+        errorStyle(date, "Veuillez saisir un mois entre 1 et 12");
+        return false;
+    }
+
+    if (day < 1 || day > 31) {
+        errorStyle(date, "Veuillez saisir un jour entre 1 et 31");
+        return false;
+    }
+      
+
+      
       return true;
   }
 
