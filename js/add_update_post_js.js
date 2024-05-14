@@ -141,8 +141,15 @@ $(document).ready(function() {
             $('#titreErr').text('Le titre est obligatoire.'); // Afficher un message d'erreur
             isValid = false; // Mettre isValid à false car le champ est vide
         } else {
+            // Vérifier si le titre est plus long que 150 caractères
+            //if ($('#titre').val().trim().length > 150) {
+                //$('#titre').addClass('error'); // Ajouter la classe d'erreur au champ "titre"
+                //$('#titreErr').text('Le titre est trop long (maximum 150 caractères).'); // Afficher un message d'erreur
+                //isValid = false; // Mettre isValid à false car le titre est trop long
+            //} else {
             $('#titre').removeClass('error'); // Supprimer la classe d'erreur du champ "titre"
             $('#titreErr').text(''); // Effacer le message d'erreur
+        //}
         }
 
         // Vérifier si le champ "contenu" est vide
@@ -172,3 +179,8 @@ $(document).ready(function() {
 
     validateForm(); // Appeler la fonction de validation initialement pour vérifier si les champs sont vides dès le chargement de la page
 });
+
+
+
+
+
