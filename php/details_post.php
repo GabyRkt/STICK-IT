@@ -42,9 +42,9 @@
             <div class='titre'><?php echo $row['titre_post']; ?></div>
                 <div class='container-post' style='text-align: center;'>
                     <div class='post-details' style='text-align: start;'> </div>               
-                        <div class='post-text' style='color:<?php echo $row['code_couleur_post']; ?>; font-size:<?php echo $row['taille_post']; ?>; font-family:<?php echo $row['police_post']; ?>;'><p><?php echo $row['contenu_post']; ?></p></div>
+                        <div class='post-text' style='background-color:<?php echo $row['code_couleur_post']; ?>; font-size:<?php echo $row['taille_post']; ?>; font-family:<?php echo $row['police_post']; ?>;'><p><?php echo $row['contenu_post']; ?></p></div>
                         <div class='post-details'></div>
-                        <a class='back-link' style='text-align: left;' href='liste_post.php'>Retour à la liste des posts</a> 
+                        <a class='back-link' style='text-align: left;' href='../php/accueil.php'>Retour à la liste des posts</a> 
                     
                 </div>
 <?php
@@ -55,13 +55,22 @@
                     <div class='post-details' style='text-align: start;'> </div>               
                     <div class='post-text'><p>Ce post-it n'existe pas</p></div>
                     <div class='post-details'></div>
-                    <a class='back-link' style='text-align: left;' href='liste_post.php'>Retour à la liste des posts</a>   
+                    <a class='back-link' style='text-align: left;' href='../php/accueil.php'>Retour à la liste des posts</a>   
             </div>
 
         <?php
         }
     } else {
-        echo "<p>Identifiant du post non spécifié.</p>";
+        ?>
+            <div class='titre'>Identifiant non spécifié</div>
+                <div class='container-post' style='text-align: center;'>
+                    <div class='post-details' style='text-align: start;'> </div>               
+                    <div class='post-text'><p>Veuillez entrer un identifiant</p></div>
+                    <div class='post-details'></div>
+                    <a class='back-link' style='text-align: left;' href='../php/accueil.php'>Retour à la liste des posts</a>   
+            </div>
+
+        <?php
     }
     ?>
 </body>
