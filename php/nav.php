@@ -1,7 +1,17 @@
 <nav>
     <div class="container">
         <div class="left">
+            <?php 
+            if(!isset($_SESSION['id'])){
+            ?>
+            <a href="../php/main.php" class="logo">Stick IT</a>
+            <?php
+            }else{
+            ?>
             <a href="../php/accueil.php" class="logo">Stick IT</a>
+            <?php
+            }
+            ?>
         </div>
         <div class="right">
             <?php 

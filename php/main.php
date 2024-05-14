@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenue - Stick IT</title>
-    <link rel="stylesheet" type="text/css" href="CSS/main.css">
-    <link rel="stylesheet" type="text/css" href="CSS/nav.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/nav.css">
 
 </head>
 <body>
     <header>
     <?php
-    require_once('php/nav.php');
+    require_once('../php/nav.php');
     ?>
     </header>
     <main class="flex-container">
@@ -26,7 +26,7 @@
             </section>
         </section>
         <section>
-            <img src="icons/notes-list.png" class="image">
+            <img src="../icons/notes-list.png" class="image">
         </section>
     </main>
 
