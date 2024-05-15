@@ -1,5 +1,8 @@
-# Post-IT
-Notice d’installation du projet : 
+# STICK-IT
+Projet de recherche WEB sur le thème du gestionnaire de pense-bête. 
+Projet en groupe fait en année de Master 1 MIAGE - Informatique décisionnelle.
+
+# Notice d’installation du projet : 
 
 ## Créer facilement un environnement de serveur local :
 - Télécharger Xampp : 
